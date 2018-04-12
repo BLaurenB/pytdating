@@ -1,8 +1,5 @@
 
 
-
-
-
 $bg-start: #9d9181;
 $bg-end: #9e866c;
 $card-bg: #DFDFE2;
@@ -36,10 +33,11 @@ $facebook-color: #3b5999;
 }
 #hero-text{
   display:flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: flex-start;
-  margin:3% 0 0 15%;
+  margin-top: 10%;
+  // flex-direction: row;
+  // justify-content: flex-end;
+  // align-items: flex-start;
+  // margin:5% 0 0 15%;
 }
 
 .card-profile {
@@ -111,6 +109,7 @@ $grey:  #EAEAEA;
 }
 .login-button a{
   color:white !important;
+  max-width: 100px;
 }
 
 .login,.login a {
@@ -121,7 +120,16 @@ $grey:  #EAEAEA;
   flex-direction: column;
   align-items:space-between;
   justify-content: center;
+  max-width: 200px;
+  margin: 3%;
 }
+.pyt-signup-outer{
+  display:flex;
+  flex-direction: row;
+  align-items:space-between;
+  justify-content: center;
+}
+
 [class*="col-md-12"] {
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -204,13 +212,12 @@ td{
   font-size:1em;
 }
 
-<<<<<<< HEAD
+
 .backer-search-form,#q2-comment-box,#question-end,#q3-comment-box,#q4-comment-box,#q5-comment-box, .list-and-add-backers, .list-backers{
   display:none
 }
 
-.list-backers-show, {
-=======
+
 .backer-search-form,
 #q2-comment-box,
 #question-end,
@@ -218,7 +225,7 @@ td{
 #q4-comment-box,
 #q5-comment-box,
 .list-and-add-backers,
-.answer2-table, 
+.answer2-table,
 .answer3-table,
 .answer4-table,
 .answer5-table,
@@ -230,7 +237,6 @@ td{
 }
 
 .list-backers-show,.find-new-backer,.answer1-table-show {
->>>>>>> all personality traits
   margin:2%;
   display: block;
 }
@@ -277,7 +283,7 @@ body{
 
 .overlay h1{
   font-size: 4em;
-  color:$teal;
+  // color:$teal;
   // margin: 5% 10% 0 15%;
 }
 .q_1_modal{
@@ -1069,6 +1075,22 @@ td, th {
 .text-white {
   color: #fff;
 }
+.text-navy {
+  color: #272266;
+}
+.text-lt-grey {
+  color: #d1d1d1;
+}
+.text-charcoal {
+  color: #261d47;
+}
+.text-accent {
+  color: #f7023f;
+}
+
+.text-center {
+  text-align: center;
+}
 
 .transition {
   -webkit-transition: all 0.3s ease 0s;
@@ -1660,7 +1682,7 @@ h1, h2, h3, h4, h5, h6 {
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: cover !important;
-  height: 200px;
+  // height: 200px;
 }
 
 .list-style {
@@ -2357,7 +2379,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slogan{
-  color:$teal;
   font-size:1.5em;
   margin: 2% 10% 0 15%;
 }
@@ -2453,7 +2474,7 @@ nav a:hover {
 }
 
 .section-gap {
-  padding: 120px 0;
+  padding: 30px 0;
 }
 
 .section-title {
@@ -2478,7 +2499,7 @@ nav a:hover {
 .primary-btn {
   margin-top:20px;
   line-height: 40px;
-  padding: 0 30px;
+  // padding: 0 30px;
   border-radius: 20px;
   border: 1px solid $teal;
   color: $teal;
@@ -2514,25 +2535,27 @@ nav a:hover {
 }
 
 .banner-area {
-  background: url('blackwhite.jpg') no-repeat center center/cover;
+  // background: url('blackwhite.jpg') no-repeat center center/cover;
 }
+.bg-landing-light-teal {
+background: #d7efee}
 
 .banner-area .overlay-bg {
-  background: rgba(0, 0, 0, 0.25);
+  // background: rgba(0, 0, 0, 0.25);
 }
 
-@media (max-width: 767px) {
-  .banner-area .fullscreen {
-    height: 600px !important;
-  }
-}
+// @media (max-width: 767px) {
+//   .banner-area .fullscreen {
+//     height: 100px !important;
+//   }
+// }
 
 .banner-content h1 {
   font-size: 60px;
   font-weight: 600;
   line-height: 1.2em;
   margin-bottom: 20px;
-  color: $teal;
+  // color: $teal;
 }
 
 @media (max-width: 767px) {

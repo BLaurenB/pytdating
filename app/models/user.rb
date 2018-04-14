@@ -8,11 +8,12 @@ class User < ApplicationRecord
   has_many :dater_backers, through: :daters
   has_many :dater_backers, through: :backers
   has_one :mate_preference
+  has_many :images
 
   acts_as_messageable
 
   def self.from_omniauth(auth)
-     
+
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid

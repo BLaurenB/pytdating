@@ -2538,7 +2538,8 @@ nav a:hover {
   // background: url('blackwhite.jpg') no-repeat center center/cover;
 }
 .bg-landing-light-teal {
-background: #d7efee}
+    background: linear-gradient(to bottom, #78ffd6 0%, #007991 100%);
+}
 
 .banner-area .overlay-bg {
   // background: rgba(0, 0, 0, 0.25);

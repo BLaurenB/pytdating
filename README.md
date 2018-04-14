@@ -1,24 +1,17 @@
-# README
+# PYT Dating
+This project began as a paired project between Zach Landes and Lauren Billington for PYT Dating through Turing School of Software and Design.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### About PYT Dating
 
-Things you may want to cover:
 
-* Ruby version
+### Experience PYT Dating Live
 
-* System dependencies
 
-* Configuration
+###
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Credits
+Initial work completed from 4/1/2018 - 4/14/2018 by:
+Zach Landes
+Lauren Billington
+https://github.com/zacharylandes/pytdating

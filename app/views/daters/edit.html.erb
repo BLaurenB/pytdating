@@ -16,7 +16,7 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">You'll get better match with a complete profile</h5>
-      <p class="text-left">Backers: <%= current_dater.backers.count %></p>
+      <p class="text-left">Backers: <%= current_dater.backers.length %></p>
       <p class="text-left">PYT Photo: <%#= current_dater.pyt_image.nil? ? "Please take a photo!" : "Done" %></p>
       <p class="text-left">Physical Traits, Lifestyle, and Leanings: <br><%= current_dater.traits_complete? ? "At least one has been left blank" : "Done" %></p>
       <p class="text-left">Personality Traits: <br><%= current_dater.personalities_complete? ? "At least one has been left blank" : "Done" %></p>

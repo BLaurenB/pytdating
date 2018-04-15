@@ -9,11 +9,11 @@ class DatersController < ApplicationController
   end
 
   def edit
-    @dater = Dater.find(params[:id])
+    @dater = current_dater
   end
+
   def update
-    dater = Dater.find(params[:id])
-    dater.update(dater_params)
+    current_dater.update(dater_params)
   end
 
   private
@@ -22,6 +22,6 @@ class DatersController < ApplicationController
     end
     def traits_params
     end
-    
+
 
 end

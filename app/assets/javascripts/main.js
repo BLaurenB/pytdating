@@ -45,18 +45,6 @@ $(document).ready(function(){
         $('.answer5-table').toggleClass('answer1-table-show')
     })
 
-
-
-
-    $('#list-backer-button').click(function(){
-      $('.list-backers').toggleClass('list-backers-show')
-    })
-    $('#list-backer-button').click(function(){
-      $('.list-and-add-backers').toggleClass('list-backers-show')
-    })
-
-
-
     $('#card-button').click(function(){
         $('.list-and-add-backers').toggleClass('backer-search-form')
     })
@@ -84,7 +72,7 @@ $(document).ready(function(){
       .then((parsed) => {
         console.log(parsed)
         if (parsed === null) {
-          $(".list-and-add-backers").append(
+          $("#your-backers").append(
             `<div class="alert alert-warning" role="alert" id="backer-not-found-alert">
               <h4 class="alert-heading">Oh Snap!</h4>
                 <p>That person isn't signed up. Send them an invite!</p>
@@ -97,7 +85,7 @@ $(document).ready(function(){
           fetch(`http://localhost:3000/api/v1/daters/${currentUser}/backers/${backerId}`)
           .catch(error => console.error(error))
 
-          $(".list-and-add-backers").append(
+          $("#your-backers").append(
              `<div class="alert alert-success" role="alert" id="backer-invited-alert">
                 <h4 class="alert-heading">${parsed.f_name} ${parsed.l_name} was added as a backer!</h4>
               </div>`)
@@ -109,67 +97,6 @@ $(document).ready(function(){
     )
 
 
-// DATER SEARCHES FOR BACKER BY NAME
-    $('#find-backer-by-name').click(function(event) {
-      event.preventDefault()
-      let first = event.target.offsetParent.childNodes[1].value
-      let last =  event.target.offsetParent.childNodes[3].value
-      let currentUser = document.location.pathname.substr(11)
-
-            fetch(`http://localhost:3000/api/v1/users?f_name=${first}&l_name=${last}`)
-            .then((response) => response.json())
-            .then((parsedBackers) => {
-              console.log("line 122", parsedBackers)
-              if (parsedBackers.length === 0) {
-                // CAN'T FIND BY FIRST AND LAST NAME
-                $("#your-backers").append(
-                  `<div class="alert alert-warning" role="alert" id="backer-not-found-alert">
-                    <h4 class="alert-heading">Oh Snap!</h4>
-                      <p>That person isn't signed up. Send them an invite!</p>
-                   </div>`)
-                $("#backer-not-found-alert").delay( 3000 ).fadeOut( 300 )
-              }
-
-              else {
-                //FOUND AT LEAST ONE PERSON BY THAT NAME. PRESENT NAME AND IMAGES FOR USER TO SELECT.
-                $("#your-backers").append(
-                   `<div class="alert alert-success" role="alert" id="backer-invited-alert">
-                      <h4 class="alert-heading"> Which ${first.toUpperCase()} ${last.toUpperCase()} is your Framily Member?</h4>
-                    </div>`)
-                $("#backer-invited-alert").delay( 2000 ).fadeOut( 300 )
-                parsedBackers.forEach(function(backer) {
-
-                $("#your-backers").append(`
-                  <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">${backer.f_name} ${backer.l_name}</h5>
-                      <p class="card-text">...</p>
-                      <a class ="primary-btn card-button" id="connect-user-as-backer" data-text="${backer.id}" >Connect with Me!</a>
-                    </div>
-                  </div>
-                `)
-                })
-              }
-            })
-            .catch(error => console.error(error))
-    })
-
-// DATER ADDS NEW BACKER IN-APP - NO PERMISSION NECESSARY
-    $('.list-and-add-backers').on("click", '#connect-user-as-backer', function(event) {
-      event.preventDefault()
-      let backerId = event.currentTarget.attributes[2].nodeValue
-      let currentUser = document.location.pathname.substr(11)
-      fetch(`http://localhost:3000/api/v1/daters/${currentUser}/backers/${backerId}`)
-      .catch(error => console.error(error))
-
-        $(".list-and-add-backers").append(`
-          <div class="alert alert-success" role="alert" id="backer-invited-alert">
-            <h4 class="alert-heading"> Backer Added!</h4>
-          </div>`).delay( 1500 ).fadeOut( 300 )
-      })
-
-//////////////////////////////////////////////////
 
 // BACKER SEARCHES FOR DATER BY EMAIL
     $('#find-dater-by-email').click(function(event) {
@@ -214,7 +141,6 @@ $(document).ready(function(){
       $('.form-control').html('')
       $.get(`http://localhost:3000/invites?email=${email}`)
     })
-
 
 
 // BACKER SEARCHES FOR DATER BY NAME
@@ -264,7 +190,7 @@ $(document).ready(function(){
             .catch(error => console.error(error))
     })
 
-//BACKER ADDS NEW DATER IN-APP - INCLUDES PERMISSION
+// BACKER ADDS NEW DATER IN-APP - INCLUDES PERMISSION
     $('.search-for-new-dater').on("click", '#connect-user-as-dater', function(event) {
       event.preventDefault()
       let daterId = event.currentTarget.attributes[2].nodeValue

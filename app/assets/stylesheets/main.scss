@@ -634,6 +634,13 @@ a, a:focus, a:hover {
   text-decoration: none;
   outline: 0;
 }
+
+.card-deck {
+  display: flex !important;
+}
+.card-deck-none {
+  display: none;
+}
 .card-header{
   width:100%;
 }

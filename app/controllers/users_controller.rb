@@ -9,21 +9,21 @@ class UsersController < ApplicationController
   # end
 
   def edit
-    
+
   end
 
   def update
-    binding.pry
+
     user  = current_user
     user.update(user_params)
-    redirect_to dashboard_path(user)
+    redirect_to dashboard_path
   end
 
 
   def show
   end
 
-
+private
   def user_params
     params.require(:user).permit(:f_name, :l_name, :image)
   end

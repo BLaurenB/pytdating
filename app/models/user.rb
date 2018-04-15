@@ -26,7 +26,7 @@ class User < ApplicationRecord
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
 
-      Dater.find_or_create_by(user_id: user.id)
+      Dater.find_or_create_by(user_id: user.id, f_name: user.f_name, l_name: user.l_name)
       Backer.find_or_create_by(user_id: user.id, f_name: user.f_name, l_name: user.l_name)
       MatePreference.find_or_create_by(dater_id: user.id)
       Trait.find_or_create_by(dater_id: user.id)

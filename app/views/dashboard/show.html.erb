@@ -5,30 +5,29 @@
 
 <div class="card" style="width=100%">
   <div class="card-body" >
-        <%= image_tag current_user.image.url, class:'', size:"250x250" %>
+        <%#= image_tag current_user.image.url, class:'', size:"250x250" %>
   </div>
   <div class="card-body">
     <h5 class="card-title">Hi, <%= current_user.auth_name%></h5>
-    <p class="card-text">IS TEXT NEEDED HERE?</p>
+    <p class="card-text"></p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">First Name: <%= current_user.f_name%></li>
     <li class="list-group-item">Last Name: <%= current_user.l_name%> </li>
     <li class="list-group-item">Current Email Address: <%= current_user.email %></li>
   </ul>
+  <button id="edit-user-profile-button" class="primary-btn btn-sm card-button"><span ><%= link_to "Edit", edit_user_path(current_user) %></span></button>
   <div class="card-body">
-
-    <button id="dater-profile-button" class="primary-btn btn-sm login-button"><span ><%= link_to "Your Dater Profile", dater_path(current_dater) %></span></button>
-    <button id="backer-profile-button" class="primary-btn btn-sm login-button"><span ><%= link_to "Your Backer Profile", backer_path(current_backer) %></span></button>
+  <div class = 'pyt-signup-outer'>
+    <div class = 'pyt-signup '>
+      <h4 class="text-center"> Edit Your <br>DATER Profile</h4>
+      <button id="dater-profile-button" class="primary-btn btn-sm card-button"><span ><%= link_to "Dater", edit_dater_path(current_dater) %></span></button>
+    </div>
+    <div class = 'pyt-signup '>
+      <h4 class="text-center">Edit Your <br>BACKER Profile</h4>
+        <button id="backer-profile-button" class="primary-btn btn-sm card-button"><span ><%= link_to "Backer", edit_backer_path(current_backer) %></span></button>
+    </div>
+  </div>
 
   </div>
-</div>
-
-
-
-
-
-
-
-
 </div>

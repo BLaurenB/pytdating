@@ -7,30 +7,47 @@
 <div class="card-deck">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <h5 class="card-title">You can't view the Whole Pool until the following are complete</h5>
+      <p class="text-left">Take at least one photo using PYT Dating's photo service</p>
+      <p class="text-left">Have at least one backer</p>
+      <p class="text-left"><small class="text-muted"></small></p>
     </div>
   </div>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <h5 class="card-title">You'll get better match with a complete profile</h5>
+      <p class="text-left">Backers: <%= current_dater.backers.count %></p>
+      <p class="text-left">PYT Photo: <%#= current_dater.pyt_image.nil? ? "Please take a photo!" : "Done" %></p>
+      <p class="text-left">Physical Traits, Lifestyle, and Leanings: <br><%= current_dater.traits_complete? ? "At least one has been left blank" : "Done" %></p>
+      <p class="text-left">Personality Traits: <br><%= current_dater.personalities_complete? ? "At least one has been left blank" : "Done" %></p>
+      <p class="text-left">Mate Trait Preferences:<br> <%= current_dater.mate_preferences_complete?  ? "At least one has been left blank" : "Done" %></p>
+      <p class="text-left"><small class="text-muted"></small></p>
     </div>
   </div>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
+
 </div>
 
 
 <button id="edit-user-profile-button" class="primary-btn btn-sm card-button"><span>Your Backers</span></button>
+<div class="card-deck">
+  <div class="card">
+    <div class="card-body-center">
+      <h5 class="card-title">They got your back:</h5>
+      <% if current_dater.backers.empty? %>
+        <div class="alert alert-warning" role="alert">
+          Wait, nobody's got your back? Connect your tribe.
+        </div>
+        <button id="invite_backers-button" class="primary-btn btn-sm card-button button-width-200"><span>Get some Backers</span></button>
+      <% else %>
+        <% current_dater.backers.each do |b| %>
 
+        <p class="text-left"><%= b.f_name.capitalize %> </p>
+        <% end %>
+      <% end %>
+      <p class="text-left"><small class="text-muted"></small></p>
+    </div>
+  </div>
+</div>
 
 
 <button id="edit-user-profile-button" class="primary-btn btn-sm card-button"><span>Pictures</span></button>

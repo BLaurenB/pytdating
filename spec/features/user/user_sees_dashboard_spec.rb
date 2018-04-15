@@ -2,12 +2,11 @@ require 'rails_helper'
 
 describe "As an authenticated User" do
   describe "when I sign in I see my dashboard with my User Details" do
-
+    let (:user) { create(:user) }
+    let (:dater) { create(:dater, user: user) }
+    let (:backer) { create(:backer, user: user) }
 
     it "I see my Auth name, first and last names, and email address" do
-      user = create(:user)
-      dater = create(:dater, user: user)
-      backer = create(:backer, user: user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       allow_any_instance_of(ApplicationController).to receive(:current_dater).and_return(dater)
       allow_any_instance_of(ApplicationController).to receive(:current_backer).and_return(backer)
@@ -21,9 +20,6 @@ describe "As an authenticated User" do
     end
 
     it "I see links to start my Dater and Backer Profiles" do
-      user = create(:user)
-      dater = create(:dater, user: user)
-      backer = create(:backer, user: user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       allow_any_instance_of(ApplicationController).to receive(:current_dater).and_return(dater)
       allow_any_instance_of(ApplicationController).to receive(:current_backer).and_return(backer)

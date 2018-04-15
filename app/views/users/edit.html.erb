@@ -1,0 +1,34 @@
+<div class="dashboard-header">
+  <h2>Dashboard</h2>
+
+
+
+<div class="card" style="width= 100%">
+  <%= image_tag current_user.image.url, class:'card-img-top' %>
+  <img class="card-img-top" src="pexels-photo-461049.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Hi, <%= current_user.auth_name%></h5>
+    <p class="card-text">Edit your Basic Info</p>
+  </div>
+  <%= form_for (current_user) do |f| %>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">First Name: <%= f.text_field :f_name%></li>
+    <li class="list-group-item">Last Name: <%= f.text_field :l_name%></li>
+    <li class="list-group-item">Change Picture <%= f.file_field :image %></li>
+  </ul>
+
+  <%= f.submit "    Save    ", class: "primary-btn btn-sm login-button" %>
+  <% end %>
+  <div class="card-body">
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+</div>

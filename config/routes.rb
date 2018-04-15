@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:edit, :show, :destroy]
+  resources :users, only: [:edit, :show, :update, :destroy]
   post 'search', to: 'search#create' , as: "search"
   get 'user/:id/pool', to: 'pool#index' , as: "user_pool"
   put 'user/:id/pool', to: 'pool#update' , as: "edit_user_pool"

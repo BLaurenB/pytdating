@@ -9,12 +9,14 @@ class UsersController < ApplicationController
   # end
 
   def edit
+    
   end
 
   def update
+    binding.pry
     user  = current_user
     user.update(user_params)
-    redirect_to user_path(user)
+    redirect_to dashboard_path(user)
   end
 
 

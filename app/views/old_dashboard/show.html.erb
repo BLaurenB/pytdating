@@ -1,0 +1,13 @@
+
+<%=render 'dash_side'%>
+<div class = 'dashboard-container col-md-10 card-profile text-center'>
+        <div class = ''>
+        <% if params['tab'] = 'backer' && params['tab'] != 'dater' %>
+            <%= render 'backer_tab' %>
+            <%print 'params',params%>
+         <% else %>
+            <%= render 'dater_tab'%>
+         <% end %>
+     </div>
+</div>
+

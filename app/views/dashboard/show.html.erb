@@ -1,13 +1,32 @@
+<div class="dashboard-header">
+  <h2>Dashboard</h2>
 
-<%=render 'dash_side'%>
-<div class = 'dashboard-container col-md-10 card-profile text-center'>
-        <div class = ''>
-        <% if params['tab'] = 'backer' && params['tab'] != 'dater' %>
-            <%= render 'backer_tab' %>
-            <%print 'params',params%>
-         <% else %>
-            <%= render 'dater_tab'%>
-         <% end %>
-     </div>
+
+
+<div class="card" style="width= 100%">
+  <%= image_tag current_user.image.url, class:'card-img-top' %>
+  <img class="card-img-top" src="pexels-photo-461049.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Hi, <%= current_user.auth_name%></h5>
+    <p class="card-text">IS TEXT NEEDED HERE?</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">First Name: <%= current_user.f_name%></li>
+    <li class="list-group-item">Last Name: <%= current_user.l_name%> </li>
+    <li class="list-group-item">Current Email Address: <%= current_user.email %></li>
+  </ul>
+  <div class="card-body">
+
+    <button id="dater-profile-button" class="primary-btn btn-sm login-button"><span ><%= link_to "Your Dater Profile", dater_path(current_user) %></span></button>
+
+  </div>
 </div>
 
+
+
+
+
+
+
+
+</div>

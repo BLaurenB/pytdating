@@ -219,6 +219,7 @@ ActiveRecord::Schema.define(version: 20180414214149) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   add_foreign_key "backers", "users"

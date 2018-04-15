@@ -251,7 +251,7 @@ td{
 }
 .main{
   height:100%;
-  display: flex;
+  // display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
@@ -2440,9 +2440,9 @@ nav {
 @media (max-width: 767px) {
   nav {
     margin-right: 0;
-    position: absolute;
+    position: absolute;kj
     right: 0;
-    top: 47px;
+    // top: 47px;
     text-align: right;
     padding: 20px 0;
     z-index: 5;
@@ -2535,7 +2535,7 @@ nav a:hover {
 }
 
 .banner-area {
-  // background: url('blackwhite.jpg') no-repeat center center/cover;
+  // background: url('pexels-photo-461049.jpg') no-repeat center center/cover;
 }
 .bg-landing-light-teal {
     background: linear-gradient(to bottom, #78ffd6 0%, #007991 100%);

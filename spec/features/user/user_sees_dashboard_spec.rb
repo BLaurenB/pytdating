@@ -2,10 +2,22 @@ require 'rails_helper'
 
 describe "As an authenticated User" do
 
-  describe "when I sign in I see my dashboard" do
+  describe "when I sign in I see my dashboard with my User Details" do
+    xit "I see my Auth name, first and last names, and email address" do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      # I see my first and last name, email, I am prompted to add an image
+      visit '/dashboard'
 
-    I see my first and last name, email, I am prompted to add an image
+      expect(page).to have_content(user.f_name)
+      expect(page).to have_content(user.l_name)
+      expect(page).to have_content(user.email)
+    end
 
   end
 
-end 
+  describe "I see links to start my Dater and Backer Profiles" do
+    
+  end
+
+end

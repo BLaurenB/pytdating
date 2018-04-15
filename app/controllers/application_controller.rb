@@ -7,18 +7,18 @@ class ApplicationController < ActionController::Base
   end
 
   def current_dater
-     current_user.daters.first if current_user
+    Dater.find_by(user_id: current_user.id)
   end
 
   def current_backer
-    current_user.backers.first if current_user
+    Backer.find_by(user_id: current_user.id)
  end
 
 
   def inches_feet(inches)
     mod = inches%12
     inch = mod.to_s.split('')
-      if inch.length == 1 
+      if inch.length == 1
         inch.unshift('0')
       end
       inch = inch.join('')
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
   def feet_inches(ft,inch)
     ft = (ft.to_i * 12)
-    inch = inch.to_i 
+    inch = inch.to_i
     p inch + ft
   end
 

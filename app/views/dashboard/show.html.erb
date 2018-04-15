@@ -17,7 +17,8 @@
   </ul>
   <div class="card-body">
 
-    <button id="dater-profile-button" class="primary-btn btn-sm login-button"><span ><%= link_to "Your Dater Profile", dater_path(current_user) %></span></button>
+    <button id="dater-profile-button" class="primary-btn btn-sm login-button"><span ><%= link_to "Your Dater Profile", dater_path(current_dater) %></span></button>
+    <button id="backer-profile-button" class="primary-btn btn-sm login-button"><span ><%= link_to "Your Backer Profile", backer_path(current_backer) %></span></button>
 
   </div>
 </div>

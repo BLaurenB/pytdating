@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
-    
-  def index
-    @daters = SearchService.new.search(params,current_user)
-    params = {} 
-  end
 
-  def create
-  end
+  # def index -- ONLY FOR ADMINS
+  #   @daters = SearchService.new.search(params,current_user)
+  #   params = {}
+  # end
+
+  # def create
+  # end
 
   def edit
-    @user  = current_user
   end
 
   def update
@@ -18,10 +17,8 @@ class UsersController < ApplicationController
     redirect_to user_path(user)
   end
 
-  
+
   def show
-    @user = User.find(params[:id])
-    @dater = @user.daters.first
   end
 
 
@@ -30,4 +27,3 @@ class UsersController < ApplicationController
   end
 
 end
-  

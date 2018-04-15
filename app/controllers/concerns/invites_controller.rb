@@ -1,10 +1,10 @@
 class InvitesController < ApplicationController
 
   def show
-    #  
+    #
     if params[:email]
       UserMailer.dater_requests_backer(params[:email])
-      redirect_to "/dashboard/#{current_user.id}?tab=dater"
+      redirect_to dashboard_path
 
     elsif params[:f_name]
 

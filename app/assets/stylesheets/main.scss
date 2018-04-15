@@ -303,7 +303,7 @@ body{
 .overlay h1{
   font-size: 4em;
   // color:$teal;
-  // margin: 5% 10% 0 15%;
+  padding-top: 20%;
 }
 .q_1_modal{
   position: absolute;
@@ -2564,7 +2564,8 @@ nav a:hover {
   // background: url('pexels-photo-461049.jpg') no-repeat center center/cover;
 }
 .bg-landing-light-teal {
-    background: linear-gradient(to bottom, #78ffd6 0%, #007991 100%);
+    background: linear-gradient(#78ffd6 0%, #007991 100%);
+    height: 70%;
 }
 
 .banner-area .overlay-bg {
@@ -2581,7 +2582,7 @@ nav a:hover {
   font-size: 60px;
   font-weight: 600;
   line-height: 1.2em;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   // color: $teal;
 }
 

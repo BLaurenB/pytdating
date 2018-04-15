@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   def dater_requests_backer(current_user, email_new_user)
     @email_new_user = email_new_user
     @requestor = current_user
-    @url  = "http://localhost:3000/auth/google_oauth2?tab=backer&requestor-dates=#{@requestor.id}"
+    @url  = "http://localhost:3000/auth/google_oauth2?requestor-dates=#{@requestor.id}"
 
     mg_client = Mailgun::Client.new ENV['api_key']
     message_params = {:from    => ENV['gmail_username'],
@@ -19,7 +19,7 @@ class UserMailer < ApplicationMailer
   def backer_requests_dater(current_user, email_new_user)
     @email_new_user = email_new_user
     @requestor = current_user
-    @url  = "http://localhost:3000/auth/google_oauth2?tab=dater&requestor-backs=#{@requestor.id}"
+    @url  = "http://localhost:3000/auth/google_oauth2?requestor-backs=#{@requestor.id}"
 
     mg_client = Mailgun::Client.new ENV['api_key']
     message_params = {:from    => ENV['gmail_username'],

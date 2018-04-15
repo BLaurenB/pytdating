@@ -3,8 +3,8 @@
 <div class="card" style="width=100%">
 
 <h3>Your DATER Profile is <%= %> % complete</h3>
-<button id="edit-user-profile-button" class="primary-btn btn-sm card-button"><span>% Complete</span></button>
-<div class="card-deck">
+<button id="edit-user-profile-btn-%" class="primary-btn btn-sm card-button"><span>% Complete</span></button>
+<div class="card-deck" id="%complete">
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">You can't view the Whole Pool until the following are complete</h5>
@@ -28,41 +28,42 @@
 </div>
 
 
-<button id="edit-user-profile-button" class="primary-btn btn-sm card-button"><span>Your Backers</span></button>
-<div class="card-deck">
-  <div class="card">
-    <div class="card-body-center">
-      <h5 class="card-title">They got your back:</h5>
-      <% if current_dater.backers.empty? %>
-        <div class="alert alert-warning" role="alert">
-          Wait, nobody's got your back? Connect your tribe.
-        </div>
-        <button id="invite_backers-button" class="primary-btn btn-sm card-button button-width-200"><span>Get some Backers</span></button>
-      <% else %>
-        <% current_dater.backers.each do |b| %>
-
-        <p class="text-left"><%= b.f_name.capitalize %> </p>
+<button id="edit-user-profile-btn-backers" class="primary-btn btn-sm card-button"><span>Your Backers</span></button>
+<div id="your-backers">
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body-center">
+        <h5 class="card-title">They got your back:</h5>
+        <% if current_dater.backers.empty? %>
+          <div class="alert alert-warning" role="alert">
+            Wait, nobody's got your back? Connect your tribe.
+          </div>
+        <% else %>
+          <% current_dater.backers.each do |b| %>
+          <p class="text-left"><%= b.f_name.capitalize %> </p>
+          <% end %>
         <% end %>
-      <% end %>
-      <p class="text-left"><small class="text-muted"></small></p>
+        <%= render 'add_backer' %>
+        <p class="text-left"><small class="text-muted"></small></p>
+      </div>
     </div>
   </div>
 </div>
 
 
-<button id="edit-user-profile-button" class="primary-btn btn-sm card-button"><span>Pictures</span></button>
+<button id="edit-user-profile-btn-pix" class="primary-btn btn-sm card-button"><span>Pictures</span></button>
 
 
 
-<button id="edit-user-profile-button" class="primary-btn btn-sm card-button"><span>Your Physical Traits, Lifestyle, and Leanings</span></button>
+<button id="edit-user-profile-btn-traits" class="primary-btn btn-sm card-button"><span>Your Physical Traits, Lifestyle, and Leanings</span></button>
 
 
 
-<button id="edit-user-profile-button" class="primary-btn btn-sm card-button"><span> Your Personality Traits</span></button>
+<button id="edit-user-profile-btn-personality" class="primary-btn btn-sm card-button"><span> Your Personality Traits</span></button>
 
 
 
-<button id="edit-user-profile-button" class="primary-btn btn-sm card-button"><span>Your Preferences for a Match</span></button>
+<button id="edit-user-profile-btn-mates" class="primary-btn btn-sm card-button"><span>Your Preferences for a Match</span></button>
 
 
 

@@ -21,7 +21,7 @@ $(document).ready(function(){
     $('#show-match-preferences').click(function(){
       $('.match-preferences').toggleClass('match-preferences-show')
   })
-   
+
     $('#dater-q1-button').click(function(){
       event.preventDefault()
         $('.answer1-table').toggleClass('answer1-table-show')
@@ -31,7 +31,7 @@ $(document).ready(function(){
       event.preventDefault()
         $('.answer2-table').toggleClass('answer1-table-show')
     })
-    
+
     $('#dater-q3-button').click(function(){
       event.preventDefault()
         $('.answer3-table').toggleClass('answer1-table-show')
@@ -119,10 +119,10 @@ $(document).ready(function(){
             fetch(`http://localhost:3000/api/v1/users?f_name=${first}&l_name=${last}`)
             .then((response) => response.json())
             .then((parsedBackers) => {
-              console.log(parsedBackers)
+              console.log("line 122", parsedBackers)
               if (parsedBackers.length === 0) {
                 // CAN'T FIND BY FIRST AND LAST NAME
-                $(".list-and-add-backers").append(
+                $("#your-backers").append(
                   `<div class="alert alert-warning" role="alert" id="backer-not-found-alert">
                     <h4 class="alert-heading">Oh Snap!</h4>
                       <p>That person isn't signed up. Send them an invite!</p>
@@ -132,14 +132,14 @@ $(document).ready(function(){
 
               else {
                 //FOUND AT LEAST ONE PERSON BY THAT NAME. PRESENT NAME AND IMAGES FOR USER TO SELECT.
-                $(".list-and-add-backers").append(
+                $("#your-backers").append(
                    `<div class="alert alert-success" role="alert" id="backer-invited-alert">
                       <h4 class="alert-heading"> Which ${first.toUpperCase()} ${last.toUpperCase()} is your Framily Member?</h4>
                     </div>`)
                 $("#backer-invited-alert").delay( 2000 ).fadeOut( 300 )
                 parsedBackers.forEach(function(backer) {
 
-                $(".list-and-add-backers").append(`
+                $("#your-backers").append(`
                   <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="..." alt="Card image cap">
                     <div class="card-body">

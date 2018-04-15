@@ -270,6 +270,8 @@ td{
   // display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 #active{
@@ -278,6 +280,7 @@ body{
   font-family: 'Montserrat', sans-serif;
   color:white;
 }
+
 #tab2{
   background-color:$darkBlue;
 }

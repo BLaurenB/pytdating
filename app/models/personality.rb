@@ -2,8 +2,8 @@ class Personality < ApplicationRecord
   belongs_to :dater
   belongs_to :backer
 
-def self.avg
-  binding.
-end
+  def self.avg
+
+  end
 
 end

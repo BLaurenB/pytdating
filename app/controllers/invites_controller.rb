@@ -16,7 +16,7 @@ class InvitesController < ApplicationController
       render plain: "ok"
 
     elsif params[:backer_id]
-      binding.pry
+      # binding.pry
       email = User.find(Backer.find(params[:backer_id]).user_id).email
       UserMailer.dater_requests_backer(current_dater, email).deliver_now
       render plain: "ok"

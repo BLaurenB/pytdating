@@ -5,7 +5,7 @@ class DatersController < ApplicationController
   end
 
   def show
-    @dater = Dater.find(params[:id])
+    @dater = current_dater
   end
 
   # def edit

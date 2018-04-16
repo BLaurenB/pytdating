@@ -1,40 +1,29 @@
         <div class="card-body" id ='' >
+          <h5 class="center-text"> 1 is "least like me" and 5 is "most like me"</h5>
+          <br>
             <p class="card-text">How Charitable are you?</p>
-
-            <input type="range" min="1" max="5" value="3" id= "charitable" class="slider">
-            <!-- <input type="range" min="1" max="100" value="50" class="slider" id="myRange"> -->
-            <!-- <p>Value: <span id="demo"></span></p> -->
-
-            </p>
+            <div><input type="range" min="1" max="5" value="3" id= "charitable" class="slider"></div>
+                <br>
             <p class="card-text">How intellegent are you?</p>
                  <input type="range" min="1" max="5" value="5" id= "intelligent" class="slider">
-
-
+                <br>
             <p class="card-text">How shy are you?</p>
                  <input type="range" min="1" max="5" value="5" id= "shy" class="slider">
-
+                <br>
 
             <p class="card-text">How spontaneous are you?</p>
                  <input type="range" min="1" max="5" value="5" id= "spontaneous" class="slider">
-
+                <br>
 
             <p class="card-text">How funny are you?</p>
                  <input type="range" min="1" max="5" value="5" id= "funny" class="slider">
-
-
             <br>
             <p><%= submit_tag 'submit', class: 'primary-btn btn-md', id:"p1-submit" %></p>
             </p>
         </div>
 
 <script>
-let slider = document.getElementById("myRange");
-let output = document.getElementById("demo");
-output.innerHTML = slider.value;
 
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
 
 $('#personality').on("click", "#p1-submit", function(event) {
 

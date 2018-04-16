@@ -1,23 +1,25 @@
         <div class="card-body" id ='' >
             <p class="card-text">How Charitable are you?</p>
 
-            <input type="range" min="1" max="5" value="5" id= "p1-value" class="slider">
+            <input type="range" min="1" max="5" value="3" id= "charitable" class="slider">
+            <!-- <input type="range" min="1" max="100" value="50" class="slider" id="myRange"> -->
+            <!-- <p>Value: <span id="demo"></span></p> -->
 
             </p>
             <p class="card-text">How intellegent are you?</p>
-                 <input type="range" min="1" max="5" value="5" id= "p2-value" class="intelligent">
+                 <input type="range" min="1" max="5" value="5" id= "intelligent" class="slider">
 
-            </p>
+
             <p class="card-text">How shy are you?</p>
-                 <input type="range" min="1" max="5" value="5" id= "p3-value" class="shy">
+                 <input type="range" min="1" max="5" value="5" id= "shy" class="slider">
 
-            </p>
+
             <p class="card-text">How spontaneous are you?</p>
-                 <input type="range" min="1" max="5" value="5" id= "p4-value" class="spontaneous">
+                 <input type="range" min="1" max="5" value="5" id= "spontaneous" class="slider">
 
-            </p>
+
             <p class="card-text">How funny are you?</p>
-                 <input type="range" min="1" max="5" value="5" id= "p5-value" class="funny">
+                 <input type="range" min="1" max="5" value="5" id= "funny" class="slider">
 
 
             <br>
@@ -26,6 +28,14 @@
         </div>
 
 <script>
+let slider = document.getElementById("myRange");
+let output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
 $('#personality').on("click", "#p1-submit", function(event) {
 
   let pTraits = event.currentTarget.offsetParent.childNodes[1].children

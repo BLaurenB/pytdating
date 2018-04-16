@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+# gem 'ruby', '~> 2.4.1'
 gem 'rails', '~> 5.1.5'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'aws-sdk-rails'
@@ -16,7 +16,7 @@ gem 'bootstrap-slider-rails'
 
 gem 'figaro'
 gem 'faraday'
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 gem "jquery-slick-rails"
 gem 'carrierwave-aws'
 gem 'bootstrap-modal-rails'
@@ -37,6 +37,12 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+# To compile master branch for heroku due to ES6
+gem 'sass-rails', github: 'rails/sass-rails', branch: 'master'
+gem 'sprockets-rails', github: 'rails/sprockets-rails', branch: 'master'
+gem 'sprockets', github: 'rails/sprockets', branch: 'master'
+gem 'babel-transpiler'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'rspec-rails'

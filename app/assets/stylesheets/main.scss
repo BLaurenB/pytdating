@@ -28,6 +28,28 @@ $facebook-color: #3b5999;
 
 }
 
+.primary-btn-reset a{
+    margin-top: 20px;
+    line-height: 40px;
+    border-radius: 20px;
+    border: 1px solid #51A1A1;
+    color: #51A1A1;
+    width: 150px;
+    height: 50px;
+    display: inline-block;
+    font-weight: 500;
+    position: relative;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    text-transform: uppercase;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
 
 #q-button-start:hover{
   color:white;
@@ -120,9 +142,26 @@ $grey:  #EAEAEA;
   justify-content: flex-start;
   align-items: center;
 }
+
+.background-black {
+  background-color: black, !important;
+}
+.landing-cards {
+  border-radius: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  height: 400px;
+}
+
+
+.login-button {
+
+  height: auto;
+}
 .login-button a{
   color:white !important;
-  max-width: 100px;
+
 }
 .button-width-200 {
   max-width: 200px;
@@ -266,12 +305,15 @@ td{
   border-bottom: 2px solid $darkBlue;
 }
 .main{
-  height:100%;
+  // height:100%;
   // display: flex;
   flex-direction: row;
   justify-content: flex-start;
+}
+.page-padding {
   padding-left: 5%;
   padding-right: 5%;
+
 }
 
 #active{
@@ -2566,6 +2608,10 @@ nav a:hover {
 .bg-landing-light-teal {
     background: linear-gradient(#78ffd6 0%, #007991 100%);
     height: 70%;
+}
+
+.background-black {
+  background-color: black;
 }
 
 .banner-area .overlay-bg {

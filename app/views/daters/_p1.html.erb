@@ -1,7 +1,7 @@
         <div class="card-body" id ='' >
             <p class="card-text">How Charitable are you?</p>
 
-            <input type="range background-black-2" min="1" max="5" value="5" id= "p1-value" class="charitable">
+            <input type="range" min="1" max="5" value="5" id= "p1-value" class="slider">
 
             </p>
             <p class="card-text">How intellegent are you?</p>
@@ -29,7 +29,7 @@
 $('#personality').on("click", "#p1-submit", function(event) {
 
   let pTraits = event.currentTarget.offsetParent.childNodes[1].children
-  traitHash = pTraits.reduce() //create an object to 'POST' to /dater_backers/personalities... or send to 
+  traitHash = pTraits.reduce() //create an object to 'POST' to /dater_backers/personalities... or send to
 
 })
 

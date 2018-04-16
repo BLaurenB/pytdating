@@ -8,13 +8,14 @@ class DatersController < ApplicationController
     @dater = Dater.find(params[:id])
   end
 
-  def edit
-    @dater = current_dater
-  end
+  # def edit
+  #   @dater = current_dater
+  # end
 
-  def update
-    current_dater.update(dater_params)
-  end
+  # def update
+  #
+  #   current_dater.update(dater_params)
+  # end
 
   private
     def image_params

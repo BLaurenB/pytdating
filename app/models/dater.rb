@@ -16,16 +16,20 @@ class Dater < ApplicationRecord
     end
   end
 
-  def traits_complete?
-    Trait.find_by_sql("select traits.* from traits inner join daters on traits.dater_id = daters.id").any? {|t| t != nil}
+  def traits_complete?(current_dater_id)
+    Trait.find_by_sql(["select traits.* from traits inner join daters on traits.dater_id = ?", current_dater_id]).any? {|t| t != nil}
   end
 
-  def personalities_complete?
-    Personality.find_by_sql("select personalities.* from personalities inner join dater_backers on personalities.dater_backer_id = dater_backers.id inner join daters on dater_backers.dater_id = daters.id").any? {|t| t != nil}
+  def personalities_complete?(current_dater_id)
+    Personality.find_by_sql(["select personalities.* from personalities inner join dater_backers on personalities.dater_backer_id = dater_backers.id inner join daters on dater_backers.dater_id = ?", current_dater_id]).any? {|t| t != nil}
   end
 
-  def mate_preferences_complete?
-    MatePreference.find_by_sql("select mate_preferences.* from mate_preferences inner join daters on mate_preferences.dater_id = daters.id").any? {|t| t != nil}
+  def mate_preferences_complete?(current_dater_id)
+    MatePreference.find_by_sql(["select mate_preferences.* from mate_preferences inner join daters on mate_preferences.dater_id = ?", current_dater_id]).any? {|t| t != nil}
+  end
+
+  def dater_images(current_user_id)  # current USER!!!!
+    Image.where(subject: current_user_id)
   end
 
 

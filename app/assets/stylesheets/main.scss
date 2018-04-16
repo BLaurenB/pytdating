@@ -14,6 +14,11 @@ $facebook-color: #3b5999;
 .pyt-logo{
 
 }
+
+.text-left {
+  align-content: left !important;
+}
+
 #q-button{
   margin:0;
 }
@@ -21,6 +26,28 @@ $facebook-color: #3b5999;
   text-align: center;
   box-shadow: 1em 1em 2em rgba(0,0,0,.2);
 
+}
+
+.primary-btn-reset a{
+    margin-top: 20px;
+    line-height: 40px;
+    border-radius: 20px;
+    border: 1px solid #51A1A1;
+    color: #51A1A1;
+    width: 150px;
+    height: 50px;
+    display: inline-block;
+    font-weight: 500;
+    position: relative;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    text-transform: uppercase;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
 }
 
 
@@ -101,15 +128,43 @@ $grey:  #EAEAEA;
   height: 200px;
   color:black;
 }
+
 .card-body{
+  display: flex;
+  flex-direction:column;
+  // justify-content: flex-start;
+  // align-items: center;
+}
+
+.card-body-center{
   display: flex;
   flex-direction:column;
   justify-content: flex-start;
   align-items: center;
 }
+
+.background-black {
+  background-color: black, !important;
+}
+.landing-cards {
+  border-radius: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  height: 400px;
+}
+
+
+.login-button {
+
+  height: auto;
+}
 .login-button a{
   color:white !important;
-  max-width: 100px;
+
+}
+.button-width-200 {
+  max-width: 200px;
 }
 
 .login,.login a {
@@ -249,11 +304,21 @@ td{
 #main-nav{
   border-bottom: 2px solid $darkBlue;
 }
+
+.notice {
+
+}
+
 .main{
-  height:100%;
-  display: flex;
+  // height:100%;
+  // display: flex;
   flex-direction: row;
   justify-content: flex-start;
+}
+.page-padding {
+  padding-left: 5%;
+  padding-right: 5%;
+
 }
 
 #active{
@@ -262,6 +327,7 @@ body{
   font-family: 'Montserrat', sans-serif;
   color:white;
 }
+
 #tab2{
   background-color:$darkBlue;
 }
@@ -284,7 +350,7 @@ body{
 .overlay h1{
   font-size: 4em;
   // color:$teal;
-  // margin: 5% 10% 0 15%;
+  padding-top: 20%;
 }
 .q_1_modal{
   position: absolute;
@@ -614,6 +680,13 @@ a, a:focus, a:hover {
 .btn:focus {
   text-decoration: none;
   outline: 0;
+}
+
+.card-deck {
+  display: flex !important;
+}
+.card-deck-none {
+  display: none;
 }
 .card-header{
   width:100%;
@@ -2442,7 +2515,7 @@ nav {
     margin-right: 0;
     position: absolute;
     right: 0;
-    top: 47px;
+    // top: 47px;
     text-align: right;
     padding: 20px 0;
     z-index: 5;
@@ -2535,10 +2608,18 @@ nav a:hover {
 }
 
 .banner-area {
-  // background: url('blackwhite.jpg') no-repeat center center/cover;
+  // background: url('pexels-photo-461049.jpg') no-repeat center center/cover;
+}
+.bg-landing-light-teal {
+    background: linear-gradient(#78ffd6 0%, #007991 100%);
+    height: 70%;
 }
 .bg-landing-light-teal {
 background: #d7efee}
+
+.background-black {
+  background-color: black;
+}
 
 .banner-area .overlay-bg {
   // background: rgba(0, 0, 0, 0.25);
@@ -2554,7 +2635,7 @@ background: #d7efee}
   font-size: 60px;
   font-weight: 600;
   line-height: 1.2em;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   // color: $teal;
 }
 

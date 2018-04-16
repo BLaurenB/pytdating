@@ -8,11 +8,12 @@ class User < ApplicationRecord
   has_many :dater_backers, through: :daters
   has_many :dater_backers, through: :backers
   has_one :mate_preference
+  has_many :images
 
   acts_as_messageable
 
   def self.from_omniauth(auth)
-     
+
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
@@ -25,7 +26,7 @@ class User < ApplicationRecord
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
 
-      Dater.find_or_create_by(user_id: user.id)
+      Dater.find_or_create_by(user_id: user.id, f_name: user.f_name, l_name: user.l_name)
       Backer.find_or_create_by(user_id: user.id, f_name: user.f_name, l_name: user.l_name)
       MatePreference.find_or_create_by(dater_id: user.id)
       Trait.find_or_create_by(dater_id: user.id)

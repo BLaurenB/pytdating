@@ -1,33 +1,31 @@
 class UsersController < ApplicationController
-    
-  def index
-    @daters = SearchService.new.search(params,current_user)
-    params = {} 
-  end
 
-  def create
-  end
+  # def index -- ONLY FOR ADMINS
+  #   @daters = SearchService.new.search(params,current_user)
+  #   params = {}
+  # end
+
+  # def create
+  # end
 
   def edit
-    @user  = current_user
+
   end
 
   def update
+
     user  = current_user
     user.update(user_params)
-    redirect_to user_path(user)
+    redirect_to dashboard_path
   end
 
-  
+
   def show
-    @user = User.find(params[:id])
-    @dater = @user.daters.first
   end
 
-
+private
   def user_params
     params.require(:user).permit(:f_name, :l_name, :image)
   end
 
 end
-  

@@ -24,7 +24,6 @@
       <p class="text-left"><small class="text-muted"></small></p>
     </div>
   </div>
-
 </div>
 
 
@@ -157,30 +156,19 @@
           </div>`).delay( 1500 ).fadeOut( 300 )
       })
 
-    // SEND EMAIL TO INVITE NEW BACKER
-    $(".list-and-add-backers").on("click", "#invite-backer-button", function(event) {
+
+
+// SEND EMAIL TO INVITE NEW BACKER
+    $(".card-body-center").on("click", "#invite-backer-button", function(event) {
       event.preventDefault()
       let email = event.target.offsetParent.childNodes[1].value
-      console.log(email)
       $.get(`http://localhost:3000/invites?email=${email}&add_backer=true`)
-      $(".list-and-add-backers").append(`
+      $("#your-backers").append(`
         <div class="alert alert-success" role="alert" id="dater-invited-alert">
           <h4 class="alert-heading"> Email Sent!</h4>
           `).delay( 1500 ).fadeOut( 300 )
       // $(".list-and-add-backers").html('')
     })
-
-      // SEND EMAIL TO INVITE NEW BACKER
-      $(".card-body-center").on("click", "#invite-backer-button", function(event) {
-        event.preventDefault()
-        let email = event.target.offsetParent.childNodes[1].value
-        $.get(`http://localhost:3000/invites?email=${email}&add_backer=true`)
-        $(".list-and-add-backers").append(`
-          <div class="alert alert-success" role="alert" id="dater-invited-alert">
-            <h4 class="alert-heading"> Email Sent!</h4>
-            `).delay( 1500 ).fadeOut( 300 )
-        // $(".list-and-add-backers").html('')
-      })
 
 
 

@@ -4,7 +4,7 @@ class TraitsController < ApplicationController
     def update
       preference =current_dater.trait
       if preference.update(trait_params)
-        flash[:notice] = "successfully updated"
+        flash[:notice] = "Your Dater Traits were successfully updated!"
       end
     redirect_to dater_path(current_dater)
     end

@@ -1,0 +1,24 @@
+        <div class="card-body" id ='' >
+            <p class="card-text">How Charitable are you?</p>
+                 <input type="range" min="1" max="5" value="5" id= "p1-value">
+                <%= hidden_field_tag 'dater_id', "#{current_dater.id}", id:'dater_id_hidden'  %>
+                <%= hidden_field_tag 'p1', "charitable", id:'p1_id_hidden'  %>
+            </p>
+            <p class="card-text">How intellegent are you?</p>
+                 <input type="range" min="1" max="5" value="5" id= "p2-value">
+                <%= hidden_field_tag 'p2', "intelligent", id:'p2_id_hidden'  %>
+            </p>
+            <p class="card-text">How shy are you?</p>
+                 <input type="range" min="1" max="5" value="5" id= "p3-value">
+                <%= hidden_field_tag 'p3', "shy", id:'p3_id_hidden'  %>
+            </p>
+            <p class="card-text">How spontaneous are you?</p>
+                 <input type="range" min="1" max="5" value="5" id= "p4-value">
+                <%= hidden_field_tag 'p4', "spontaneous", id:'p4_id_hidden'  %>
+            </p>
+            <p class="card-text">How funny are you?</p>
+                 <input type="range" min="1" max="5" value="5" id= "p5-value">
+                <%= hidden_field_tag 'p5', "funny", id:'p5_id_hidden'  %>
+                <p><%= submit_tag 'submit', class: 'primary-btn btn-md', id:"p1-submit" %></p>
+            </p>
+        </div>

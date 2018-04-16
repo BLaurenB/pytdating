@@ -19,10 +19,10 @@ class UsersController < ApplicationController
     redirect_to dashboard_path
   end
 
-
-  def show
-    # binding.pry
-  end
+  # 
+  # def show
+  #   # binding.pry
+  # end
 
 private
   def user_params

@@ -125,14 +125,15 @@
                     </div>`)
                 $("#backer-invited-alert").delay( 2000 ).fadeOut( 300 )
                 parsedBackers.forEach(function(backer) {
-
                 $("#your-backers").append(`
-                  <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
+                  <div class="card" style="width: 10rem;">
+                    <div class style="width: 50;">
+                    <img class="card-img-top" src="${backer.image.url}" alt="Card image cap">
+                    </div>
                     <div class="card-body">
                       <h5 class="card-title">${backer.f_name} ${backer.l_name}</h5>
                       <p class="card-text">...</p>
-                      <a class ="primary-btn card-button" id="connect-user-as-backer" data-text="${backer.id}" >Connect with Me!</a>
+                      <a class ="primary-btn card-button text-center" id="connect-user-as-backer" data-text="${backer.id}">Connect!</a>
                     </div>
                   </div>
                 `)
@@ -142,18 +143,17 @@
             .catch(error => console.error(error))
     })
 
-// DATER ADDS NEW BACKER IN-APP - NO PERMISSION NECESSARY
-    $('.list-and-add-backers').on("click", '#connect-user-as-backer', function(event) {
+// DATER ADDS NEW BACKER...use backer_id in
+    $('#your-backers').on("click", '#connect-user-as-backer', function(event) {
       event.preventDefault()
-      let backerId = event.currentTarget.attributes[2].nodeValue
-      let currentUser = document.location.pathname.substr(11)
-      fetch(`http://localhost:3000/api/v1/daters/${currentUser}/backers/${backerId}`)
-      .catch(error => console.error(error))
+      let backerId = event.currentTarget.dataset.text
 
-        $(".list-and-add-backers").append(`
-          <div class="alert alert-success" role="alert" id="backer-invited-alert">
-            <h4 class="alert-heading"> Backer Added!</h4>
-          </div>`).delay( 1500 ).fadeOut( 300 )
+      $.get(`http://localhost:3000/invites?backer_id=${backerId}`)
+      $("#your-backers").append(`
+        <div class="alert alert-success" role="alert" id="dater-invited-alert">
+          <h4 class="alert-heading"> Email Sent!</h4>
+          `).delay( 1500 ).fadeOut( 300 )
+
       })
 
 

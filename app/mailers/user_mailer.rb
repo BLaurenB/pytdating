@@ -2,7 +2,7 @@ class UserMailer < ApplicationMailer
   default from: "pytdating@gmail.com"
 
   def dater_requests_backer(dater, email_new_user)
-    binding.pry
+    # binding.pry
     @email_new_user = email_new_user
     @requestor = dater
     @url  = "http://localhost:3000/auth/google_oauth2?requestor-dates=#{@requestor.id}"

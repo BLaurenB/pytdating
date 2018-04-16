@@ -40,7 +40,7 @@
       </nav>
       <div class = 'main' >
        <% if flash[:notice] %>
-         <div class="notice"><%= flash[:notice] %></div>
+         <div class="alert alert-primary" role="alert"><%= flash[:notice] %></div>
         <% end %>
         <%= yield %>
       </div>

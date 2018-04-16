@@ -1,7 +1,7 @@
 class InvitesController < ApplicationController
 
   def show
-binding.pry
+# binding.pry
     if params[:email] && params[:add_dater]
       UserMailer.backer_requests_dater(current_backer, params[:email]).deliver_now
       render plain: "ok"

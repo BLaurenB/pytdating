@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     # binding.pry
     @email_new_user = email_new_user
     @requestor = dater
-    @url  = "http://pytdating-live.herokuapp.com/auth/google_oauth2?requestor-dates=#{@requestor.id}"
+    @url  = "https://pytdating-live.herokuapp.com/auth/google_oauth2?requestor-dates=#{@requestor.id}"
 
     mg_client = Mailgun::Client.new ENV['api_key']
     message_params = {:from    => ENV['gmail_username'],
@@ -20,7 +20,7 @@ class UserMailer < ApplicationMailer
   def backer_requests_dater(backer, email_new_user)
     @email_new_user = email_new_user
     @requestor = backer
-    @url  = "http://pytdating-live.herokuapp.com/auth/google_oauth2?requestor-backs=#{@requestor.id}"
+    @url  = "https://pytdating-live.herokuapp.com/auth/google_oauth2?requestor-backs=#{@requestor.id}"
 
     mg_client = Mailgun::Client.new ENV['api_key']
     message_params = {:from    => ENV['gmail_username'],

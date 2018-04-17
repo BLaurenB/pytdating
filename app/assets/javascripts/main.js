@@ -1,6 +1,8 @@
 
 $(document).ready(function(){
     "use strict";
+let traitHash
+
 
     $("#ex13").slider({
         ticks: [0, 100, 200, 300, 400],
@@ -214,7 +216,7 @@ $(document).ready(function(){
             `).delay( 1500 ).fadeOut( 300 )
     })
 
-  
+
     ///////////////////////////////////////
 
 

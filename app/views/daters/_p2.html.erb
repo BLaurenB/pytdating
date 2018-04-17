@@ -1,10 +1,10 @@
 
 
-      <div class="card-body" id ='' >
+      <div class="card-body" id="<%= @dater_backer_id %>" >
         <h5 class="center-text"> 1 is "least like me" and 5 is "most like me"</h5>
         <br>
           <p class="card-text">How adaptable are you?</p>
-          <div><input type="range" min="1" max="5" value="3" id= "adaptable" class="slider"></div>
+          <input type="range" min="1" max="5" value="3" id= "adaptable" class="slider">
               <br>
           <p class="card-text">How confident are you?</p>
                <input type="range" min="1" max="5" value="5" id= "confident" class="slider">
@@ -29,9 +29,28 @@
 
 $('#personality').on("click", "#p2-submit", function(event) {
 
-  let pTraits = event.currentTarget.offsetParent.childNodes[1].children
-  traitHash = pTraits.reduce() //create an object to 'POST' to /dater_backers/personalities... or send to
+  let pTraits = Array.from(event.currentTarget.offsetParent.childNodes[1].children)
+  let id = event.currentTarget.offsetParent.firstElementChild.id
+  console.log(id)
+  //create an object to 'POST' to /dater_backers/personalities... or send to
+  traitHash = pTraits.reduce(function(newObj, trait) {
+    if (trait.id) {
+      newObj[trait.id] = trait.value
+      return newObj
+    } else {
+    return newObj
+    }
+  }, {})
+  console.log("JSON-i-fied", JSON.stringify({"personality": traitHash }))
 
+  fetch(`http://localhost:3000/api/v1/dater_backers/${id}/personalities`, {
+    method: 'PATCH',
+  	// mode: 'cors',
+  	headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({"personality": traitHash })
+    })
+    .then((response) => console.log(response))
 })
+
 
 </script>

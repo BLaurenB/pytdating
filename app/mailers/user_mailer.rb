@@ -26,9 +26,10 @@ class UserMailer < ApplicationMailer
     message_params = {:from    => ENV['gmail_username'],
                       :to      => @email_new_user,
                       :subject => "#{@requestor.f_name} would like to connect with you!",
-                      :html    => render_to_string(template: "../views/user_mailer/dater_requests_backer.html.erb").to_str,
-                      :text    => render_to_string(template: "../views/user_mailer/dater_requests_backer.text.erb").to_str
+
+                      :html    => render_to_string(template: "../views/user_mailer/backer_requests_dater.html.erb").to_str
                       }
+                      binding.pry
     mg_client.send_message ENV['domain'], message_params
   end
 

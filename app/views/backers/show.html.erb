@@ -12,15 +12,16 @@
   </div>
 
   <div class="">
-    <h5 class="card-title">Connect to a new Dater</h5>
+    <h3 class="card-title" id="connect-daters">Connect to a new Dater</h3>
     <%= render 'add_dater' %>
   </div>
   <div class="">
-    <h5 class="card-title">Your Daters</h5>
+    <br>
+    <h3 class="card-title">Your Daters</h3>
   </div>
 
 <% current_backer.daters.each do |dater| %>
-<button id="dater-button" class="primary-btn btn-sm card-button"><span> <%= dater.f_name %> </span></button>
+<button id="dater-button" class="primary-btn btn-sm card-button"><span> <%= dater.f_name %>: Profile <%= 7%>% Complete </span></button>
 <div class="card-deck-none" id="dater-mgmt">
 <div class="card text-center">
     <div class="card-header">
@@ -35,13 +36,16 @@
     <div class="card-group ">
       <div class="card ">
         <div class="card-body">
-          <p class="card-text"> <a href="#" class="primary-btn btn-sm login-button"> ___% Complete </a> </p>
-          <p class="card-text"><a href="#" class="primary-btn btn-sm login-button">Edit my Responses </a></p>
+          <p class="card-text"><a href="#" class="primary-btn btn-sm login-button">Edit My Responses </a></p>
+        </div>
+      </div>
+      <div class="card ">
+        <div class="card-body">
+          <p class="card-text"><a href="#" class="primary-btn btn-sm login-button">See <%= dater.f_name %>'s Pool  </a></p>
         </div>
       </div>
       <div class="card">
         <div class="card-body">
-        <p class="card-text"><a href="#" class="primary-btn btn-sm login-button">See <%= dater.f_name %>'s Pool  </a></p>
          <p class="card-text"><a href="#" class="primary-btn btn-sm login-button">Add to <%= dater.f_name %>'s Pool </a></p>
         </div>
       </div>
@@ -59,13 +63,131 @@
 
 
 </div>
+</div>
 
+<!--    - - - - - - - - - - - - - BEGIN JS SCRIPTS - - - - - - - - - - - - -   -->
 
 <script>
-
+// buttons need unique id, and need to be able to call the unique id here without knowing how many there will be!
 $("#dater-button").click(function() {
   event.preventDefault()
-  $("#dater-mgmt").toggleClass("card-deck")
+  console.log(this)
+  $(".card-deck-none").toggleClass("card-deck")
 })
+
+
+
+// BACKER SEARCHES FOR DATER BY NAME
+    $('#find-dater-by-name').click(function(event) {
+      event.preventDefault()
+      let first = event.target.offsetParent.childNodes[1].value
+      let last =  event.target.offsetParent.childNodes[3].value
+      let currentUser = <%= current_user.id %>
+      console.log(currentUser )
+
+            fetch(`http://localhost:3000/api/v1/users?f_name=${first}&l_name=${last}`)
+            .then((response) => response.json())
+            .then((parsedDaters) => {
+              console.log("line 90", parsedDaters)
+              if (parsedDaters.length === 0) {
+                // CAN'T FIND BY FIRST AND LAST NAME
+
+                $("#connect-daters").append(
+                  `<div class="alert alert-warning" role="alert" id="dater-not-found-alert">
+                    <h4 class="alert-heading">Oh Snap!</h4>
+                    <h6>That person isn't signed up. Send them an invite!</h6>
+                 </div>`)
+                $("#dater-not-found-alert").delay( 3000 ).fadeOut( 300 )
+              }
+              else {
+                //FOUND AT LEAST ONE PERSON BY THAT NAME. PRESENT NAME AND IMAGES FOR USER TO SELECT.
+
+                $(".search-for-new-dater").append(
+                   `<div class="alert alert-success" role="alert" id="dater-invited-alert">
+                      <h4 class="alert-heading"> Which ${first.toUpperCase()} ${last.toUpperCase()} is your Framily Member?</h4>
+                    </div>`)
+                $("#dater-invited-alert")
+                // $("#dater-invited-alert").delay( 2000 ).fadeOut( 300 )
+                parsedDaters.forEach(function(dater) {
+                $(".search-for-new-dater").append(`
+                  <div class="card" style="width: 10rem;">
+                    <div class style="width: 50;">
+                    <img class="card-img-top" src="${dater.image.url}" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">${dater.f_name} ${dater.l_name}</h5>
+                      <p class="card-text">...</p>
+                      <a class ="primary-btn card-button text-center" id="connect-user-as-dater" data-text="${dater.id}">Connect!</a>
+                    </div>
+                  </div>
+                `)
+                })
+              }
+            })
+            .catch(error => console.error(error))
+      $('.form-control').trigger('reset')
+    })
+
+
+
+// SEND EMAIL TO INVITE NEW BACKER VIA INVITE BUTTON
+    $(".search-for-new-dater").on("click", "#invite-dater-button", function(event) {
+      event.preventDefault()
+      let email = event.target.offsetParent.childNodes[1].value
+      $.get(`http://localhost:3000/invites?email=${email}&add_dater=true`)
+
+      $("#connect-daters").append(`
+        <div class="alert alert-success" role="alert" id="dater-invited-alert">
+          <h4 class="alert-heading"> Email Sent!</h4>
+          `).delay( 1500 ).fadeOut( 300 )
+
+    })
+
+// SEARCH FOR DATER BY EMAIL ADDRESS
+    $(".search-for-new-dater").on("click", "#find-dater-by-email", function(event) {
+      event.preventDefault()
+      let email = event.target.offsetParent.childNodes[1].value
+      console.log(email)
+
+      fetch(`http://localhost:3000/api/v1/users?email=${email}`)
+      .then((response) => response.json())
+      .then((parsedDater) => {
+        console.log("line 90", parsedDater)
+        if (parsedDater === null) {
+          // CAN'T FIND BY EMAIL
+          $("#connect-daters").append(
+            `<div class="alert alert-warning" role="alert" id="dater-not-found-alert">
+              <h4 class="alert-heading">Oh Snap!</h4>
+              <h6>That person isn't signed up. Send them an invite!</h6>
+           </div>`)
+          $("#dater-not-found-alert").delay( 3000 ).fadeOut( 300 )
+        } else {
+          $.get(`http://localhost:3000/invites?email=${email}&add_dater=true`)
+
+          $("#connect-daters").append(`
+            <div class="alert alert-success" role="alert" id="dater-invited-alert">
+            <h4 class="alert-heading"> Woohoo! Email Sent!</h4>
+            `).delay( 3000 ).fadeOut( 300 )
+        }
+      })
+    })
+
+
+// SEND EMAIL TO INVITE NEW BACKER VIA CARDS and ID (not email address)
+    $(".search-for-new-dater").on("click", "#connect-user-as-dater", function(event) {
+      event.preventDefault()
+      let daterId= event.currentTarget.dataset.text
+      console.log(email)
+
+      $.get(`http://localhost:3000/invites?dater_id=${daterId}`)
+      $("#connect-daters").append(`
+        <div class="alert alert-success" role="alert" id="dater-invited-alert">
+          <h4 class="alert-heading"> Email Sent!</h4>
+          `).delay( 1500 ).fadeOut( 300 )
+
+    })
+
+
+
 
 </script>

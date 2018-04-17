@@ -5,5 +5,7 @@ class Backer < ApplicationRecord
   has_many :comments
   has_many :backer_evals
   has_many :personalities
-  
+
+
+
 end

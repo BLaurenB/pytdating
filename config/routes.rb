@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :conversations
 
-  resources :daters, only: [:index, :show, :update, :destroy]
+  resources :daters, only: [:index, :show, :edit, :update, :destroy]
   resources :backers do
     resources :daters do
           resources :comments,  as: 'comments'

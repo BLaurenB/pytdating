@@ -218,6 +218,7 @@ ActiveRecord::Schema.define(version: 20180414214149) do
   add_foreign_key "dater_backers", "backers"
   add_foreign_key "dater_backers", "daters"
   add_foreign_key "daters", "users"
+  add_foreign_key "images", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"

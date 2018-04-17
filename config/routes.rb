@@ -14,18 +14,19 @@ Rails.application.routes.draw do
 
   resources :conversations
 
-  resources :daters
+  resources :daters, only: [:index, :show, :update, :destroy]
   resources :backers do
     resources :daters do
           resources :comments,  as: 'comments'
-          resources :personalities
     end
   end
+  resources :personalities, only: [:update]
+
 
   resources :users, only: [:edit, :show, :update, :destroy]
   post 'search', to: 'search#create' , as: "search"
-  get 'user/:id/pool', to: 'pool#index' , as: "user_pool"
-  put 'user/:id/pool', to: 'pool#update' , as: "edit_user_pool"
+  # get 'user/:id/pool', to: 'pool#index' , as: "user_pool"
+  # put 'user/:id/pool', to: 'pool#update' , as: "edit_user_pool"
 
 
   namespace :api do
@@ -41,7 +42,8 @@ Rails.application.routes.draw do
       namespace :backers do
         get "/:id/daters", to: "daters#index"
       end
-
+      get 'dater_backers/:id/personalities', to: "personalities#show"
+      patch 'dater_backers/:id/personalities', to: "personalities#update"
     end
   end
 end

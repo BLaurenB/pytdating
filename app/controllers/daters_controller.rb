@@ -6,6 +6,7 @@ class DatersController < ApplicationController
 
   def show
     @dater = current_dater
+    @dater_backer_id = DaterBacker.where(dater_id: @dater.id, backer_id: @dater.id).first.id
   end
 
   # def edit
@@ -21,8 +22,7 @@ class DatersController < ApplicationController
     def image_params
       params.require(:dater).permit(:image)
     end
-    def traits_params
-    end
+
 
 
 end

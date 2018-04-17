@@ -1,36 +1,53 @@
-        <div class="card-body" id ='' >
-            <p class="card-text">How Charitable are you?</p>
 
-            <input type="range background-black-2" min="1" max="5" value="5" id= "p1-value" class="charitable">
-
-            </p>
+        <div class="card-body" id="<%= @dater_backer_id %>" >
+          <h5 class="center-text"> 1(left) is "Least like Me" and 5(right) is "Most like Me"</h5>
+          <br>
+            <p class="card-text">How charitable are you?</p>
+            <input type="range" min="1" max="5" value="3" id= "charitable" class="slider">
+                <br>
             <p class="card-text">How intellegent are you?</p>
-                 <input type="range" min="1" max="5" value="5" id= "p2-value" class="intelligent">
-
-            </p>
+                 <input type="range" min="1" max="5" value="5" id= "intelligent" class="slider">
+                <br>
             <p class="card-text">How shy are you?</p>
-                 <input type="range" min="1" max="5" value="5" id= "p3-value" class="shy">
+                 <input type="range" min="1" max="5" value="5" id= "shy" class="slider">
+                <br>
 
-            </p>
             <p class="card-text">How spontaneous are you?</p>
-                 <input type="range" min="1" max="5" value="5" id= "p4-value" class="spontaneous">
+                 <input type="range" min="1" max="5" value="5" id= "spontaneous" class="slider">
+                <br>
 
-            </p>
             <p class="card-text">How funny are you?</p>
-                 <input type="range" min="1" max="5" value="5" id= "p5-value" class="funny">
-
-
+                 <input type="range" min="1" max="5" value="5" id= "funny" class="slider">
             <br>
             <p><%= submit_tag 'submit', class: 'primary-btn btn-md', id:"p1-submit" %></p>
             </p>
         </div>
 
 <script>
+
+
 $('#personality').on("click", "#p1-submit", function(event) {
+  let pTraits = Array.from(event.currentTarget.offsetParent.childNodes[1].children)
+  let id = event.currentTarget.offsetParent.firstElementChild.id
+  console.log(id)
+  //create an object to 'POST' to /dater_backers/personalities... or send to
+  traitHash = pTraits.reduce(function(newObj, trait) {
+    if (trait.id) {
+      newObj[trait.id] = trait.value
+      return newObj
+    } else {
+    return newObj
+    }
+  }, {})
+  console.log("JSON-i-fied", JSON.stringify({"personality": traitHash }))
 
-  let pTraits = event.currentTarget.offsetParent.childNodes[1].children
-  traitHash = pTraits.reduce() //create an object to 'POST' to /dater_backers/personalities... or send to 
-
+  fetch(`http://pytdating-live.herokuapp.com/api/v1/dater_backers/${id}/personalities`, {
+    method: 'PATCH',
+  	// mode: 'cors',
+  	headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({"personality": traitHash })
+    })
+    .then((response) => console.log(response))
 })
 
 </script>

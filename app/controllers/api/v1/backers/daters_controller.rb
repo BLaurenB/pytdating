@@ -1,7 +1,7 @@
-class Api::V1::Backers::DatersController < ApplicationController
+class Api::V1::Backers::DatersController < ApiController
 
   def index
-    #  
+    #
     render json: Backer.find(params[:id]).daters
   end
 

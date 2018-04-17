@@ -1,0 +1,6 @@
+class PersonalitiesController < ApplicationController
+
+
+
+
+end

@@ -74,96 +74,13 @@
 
 <button id="edit-user-profile-btn-traits" class="primary-btn btn-sm card-button"><span>Your Physical Traits, Lifestyle, and Leanings</span></button>
   <div class="card-deck-none" id="traits">
-
-  <div class="card profile-card edit-traits">
-      <div class="card-header text-center">
-          Your Traits
-      </div>
-          <table class="table table-striped">
-      <thead>
-      <tr>
-          <th scope="col">Trait</th>
-          <th scope="col">Selection</th>
-      </tr>
-      </thead>
-      <tbody>
-    <%= form_for @dater.trait do |f| %>
-
-       <tr>
-          <td><%= f.label :height %></td>
-          <td>
-              <%=  number_field_tag "height_ft", nil, in: 4...10, id: 'number-input', value:"#{current_dater.trait.height/12}"%> ft
-              <%= number_field_tag "height_in", nil, in: 0...12, id: 'number-input', value:"#{current_dater.trait.height%12}" %> in
-          </td>
-      </tr>
-      <tr>
-           <td><%= f.label :smoker %></td>
-           <td><%= f.select :smoker, Trait.smokers.map { |key, value| [key.humanize, key] }, class: "btn btn-secondary dropdown-toggle", id:"dropdownMenu2", class:" form-control"%></td>
-      </tr>
-      <tr>
-           <td><%= f.label :religiosity %></td>
-           <td><%= f.select :religiosity, Trait.religiosities.map { |key, value| [key.humanize, key] }, class: "btn btn-secondary dropdown-toggle", id:"dropdownMenu2"%></td>
-      </tr>
-      <tr>
-           <td><%= f.label :religion %></td>
-           <td><%= f.select :religion, Trait.religions.map { |key, value| [key.humanize, key] }, class: "btn btn-secondary dropdown-toggle", id:"dropdownMenu2"%></td>
-      </tr>
-      <tr>
-          <td><%= f.label :alcohol %></td>
-          <td><%= f.select :alcohol, Trait.alcohols.map { |key, value| [key.humanize, key] } %></td>
-      </tr>
-      <tr>
-          <td> <%= f.label :body_type %></td>
-          <td><%= f.select :body_type, Trait.body_types.map { |key, value| [key.humanize, key] } %></td>
-      </tr>
-    <tr>
-          <td> <%= f.label :has_kids %></td>
-          <td><%=  f.select :has_kids, [['No Kids', false], ['Has Kids', true]]%></td>
-      </tr>
-      <tr>
-          <td> <%= f.label :wants_kids %></td>
-          <td><%= f.select :wants_kids, [['Eww', false], ['BABEEZ', true]] %></td>
-      </tr>
-      <tr>
-          <td> <%= f.label :education %></td>
-          <td><%= f.select :education, [['Not a college Grad', false], ['Collage Grad', true]] %></td>
-      </tr>
-      <tr>
-           <td><%= f.label :politicalness %></td>
-           <td><%= f.select :politicalness, Trait.politicalnesses.map { |key, value| [key.humanize, key] }, class: "btn btn-secondary dropdown-toggle", id:"dropdownMenu2"%></td>
-      </tr>
-      <tr>
-          <td> <%= f.label :political_leaning %></td>
-          <td><%= f.select :political_leaning, Trait.political_leanings.map { |key, value| [key.humanize, key] } %></td>
-      </tr>
-      <tr>
-          <td> <%= f.label :zip %></td>
-          <td> <%= f.number_field "zip", id: 'number-input'%> </td>
-      </tr>
-      <tr>
-          <td><%= f.label :has_pets %></td>
-          <td><%= f.select :has_pets, [['No Pets', false], ['Yes Pets', true]] %></td>
-          </tr>
-      <tr>
-          <td> <%= f.label :orientation %></td>
-          <td><%= f.select :orientation, Trait.orientations.map { |key, value| [key.humanize, key] } %></td>
-      </tr>
-      <tr>
-          <td><%= f.label :gender %></td>
-          <td><%= f.select :gender, Trait.genders.map { |key, value| [key.humanize, key] } %></td>
-          </tr>
-      </tbody>
-  </table>
-        <%= f.submit "Update" , class: "primary-btn btn-md" %>
-  <% end %>
-  </div>
-
-
+    <%= render 'dater_traits' %>
   </div>
 
 
 <button id="edit-user-profile-btn-personality" class="primary-btn btn-sm card-button"><span> Your Personality Traits</span></button>
     <div class="card-deck-none" id="personality">
+      
 
       <div class="card">
         <%= render 'p1'%>
@@ -237,7 +154,7 @@ $("#edit-user-profile-btn-mates").click(function() {
       let last =  event.target.offsetParent.childNodes[3].value
       let currentUser = document.location.pathname.substr(11)
 
-            fetch(`http://localhost:3000/api/v1/users?f_name=${first}&l_name=${last}`)
+            fetch(`http://pytdating-live.herokuapp.com/api/v1/users?f_name=${first}&l_name=${last}`)
             .then((response) => response.json())
             .then((parsedBackers) => {
               console.log("line 122", parsedBackers)
@@ -282,7 +199,7 @@ $("#edit-user-profile-btn-mates").click(function() {
       event.preventDefault()
       let backerId = event.currentTarget.dataset.text
 
-      $.get(`http://localhost:3000/invites?backer_id=${backerId}`)
+      $.get(`http://pytdating-live.herokuapp.com/invites?backer_id=${backerId}`)
       $("#your-backers").append(`
         <div class="alert alert-success" role="alert" id="dater-invited-alert">
           <h4 class="alert-heading"> Email Sent!</h4>
@@ -296,7 +213,7 @@ $("#edit-user-profile-btn-mates").click(function() {
     $(".card-body-center").on("click", "#invite-backer-button", function(event) {
       event.preventDefault()
       let email = event.target.offsetParent.childNodes[1].value
-      $.get(`http://localhost:3000/invites?email=${email}&add_backer=true`)
+      $.get(`http://pytdating-live.herokuapp.com/invites?email=${email}&add_backer=true`)
       $("#your-backers").append(`
         <div class="alert alert-success" role="alert" id="dater-invited-alert">
           <h4 class="alert-heading"> Email Sent!</h4>

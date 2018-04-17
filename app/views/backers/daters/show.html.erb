@@ -1,52 +1,7 @@
 <div class="dashboard-header">
   <h2><%= current_dater.f_name %>'s Profile</h2>
-
-
-  <div class="card text-center">
-      <div class="card-header">
-        ADD TO POOL  |  MESSAGE ME
-      </div>
-
-      <div class="card-body item-center">
-        <h5 class="card-title"><%= current_dater.f_name %></h5>
-        <div class="item-center" ><%= image_tag current_user.image.url, class:'', size:"250x250" %></div>
-      </div>
-
-      <div class="card-group">
-        <div class="card">
-          <div class="card-body">
-            <p class="card-text text-left">Age: </p>
-            <p class="card-text text-left">Location: </p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-           <p class="card-text text-left">Gender: </p>
-           <p class="card-text text-left">Orientation: </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-group">
-        <div class="card">
-          <div class="card-body">
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-           <a href="#" class="btn btn-primary">Go somewhere else </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-footer text-muted"><br></div>
-</div>
-
-
-
 <div class="card" style="width=100%">
-<br>
+
 <h3>Your DATER Profile is <%= %> % complete</h3>
 <button id="edit-user-profile-btn-percent" class="primary-btn btn-sm card-button"><span>% Complete</span></button>
 <div class="card-deck-none" id="percent-complete">
@@ -102,39 +57,18 @@
 
 <button id="edit-user-profile-btn-pix" class="primary-btn btn-sm card-button"><span>Pictures</span></button>
   <div class="card-deck-none" id="pix">
-    <% if  current_dater.dater_images(current_user.id).empty?%>
-        <div class="card">
-          <div class="card-body">
-            Hmmm...You don't seem to have any pictures.
-              <%= form_for (current_dater) do |f| %>
-                <p class="list-group-item">Upload a Picture <%= f.file_field :image %></p>
-                <%= f.submit "    Save    ", class: "primary-btn btn-sm login-button" %>
-              <% end %>
-          </div>
-        </div>
 
-    <% else %>
       <div class="card-group">
         <% current_dater.dater_images(current_user.id).each do |image| %>
         <div class="card">
-          <%#= image_tag image.file, class:'', size:"100x100" %>
+          <%= image_tag image.file, class:'', size:"100x100" %>
           <div class="card-footer">
             <small class="text-muted">Remove</small>
           </div>
         </div>
       <% end  %>
       </div>
-      <div class="card">
-        <div class="card-body">
-            <%= form_for (current_dater) do |f| %>
-              <p class="list-group-item">Upload a Picture <%= f.file_field :image %></p>
-              <%= f.submit "    Save    ", class: "primary-btn btn-sm login-button" %>
-            <% end %>
-        </div>
-      </div>
 
-
-      <% end  %>
   </div>
 
 
@@ -146,7 +80,7 @@
 
 <button id="edit-user-profile-btn-personality" class="primary-btn btn-sm card-button"><span> Your Personality Traits</span></button>
     <div class="card-deck-none" id="personality">
-
+      
 
       <div class="card">
         <%= render 'p1'%>
@@ -161,14 +95,18 @@
     </div>
 
 
-
 <button id="edit-user-profile-btn-mates" class="primary-btn btn-sm card-button"><span>Your Preferences for a Match</span></button>
     <div class="card-deck-none" id="mates">
-      <%= render 'dater_mates' %>
+
+      <div class="card">
+        <div class="card-body">
+          This is some text within a card body.
+        </div>
+      </div>
+
     </div>
 
 
-</div>
 </div>
 
 <script>
@@ -198,17 +136,15 @@ $("#edit-user-profile-btn-traits").click(function() {
   event.preventDefault()
   $("#traits").toggleClass("card-deck")
 })
-
 $("#edit-user-profile-btn-personality").click(function() {
   event.preventDefault()
   $("#personality").toggleClass("card-deck")
 })
-
 $("#edit-user-profile-btn-mates").click(function() {
   event.preventDefault()
-
-  $("#mates").toggleClass("card-deck-mates")
+  $("#mates").toggleClass("card-deck")
 })
+
 
 
 // DATER SEARCHES FOR BACKER BY NAME
@@ -218,7 +154,7 @@ $("#edit-user-profile-btn-mates").click(function() {
       let last =  event.target.offsetParent.childNodes[3].value
       let currentUser = document.location.pathname.substr(11)
 
-            fetch(`https://pytdating-live.herokuapp.com/api/v1/users?f_name=${first}&l_name=${last}`)
+            fetch(`http://localhost:3000/api/v1/users?f_name=${first}&l_name=${last}`)
             .then((response) => response.json())
             .then((parsedBackers) => {
               console.log("line 122", parsedBackers)
@@ -263,7 +199,7 @@ $("#edit-user-profile-btn-mates").click(function() {
       event.preventDefault()
       let backerId = event.currentTarget.dataset.text
 
-      $.get(`https://pytdating-live.herokuapp.com/invites?backer_id=${backerId}`)
+      $.get(`http://localhost:3000/invites?backer_id=${backerId}`)
       $("#your-backers").append(`
         <div class="alert alert-success" role="alert" id="dater-invited-alert">
           <h4 class="alert-heading"> Email Sent!</h4>
@@ -277,7 +213,7 @@ $("#edit-user-profile-btn-mates").click(function() {
     $(".card-body-center").on("click", "#invite-backer-button", function(event) {
       event.preventDefault()
       let email = event.target.offsetParent.childNodes[1].value
-      $.get(`https://pytdating-live.herokuapp.com/invites?email=${email}&add_backer=true`)
+      $.get(`http://localhost:3000/invites?email=${email}&add_backer=true`)
       $("#your-backers").append(`
         <div class="alert alert-success" role="alert" id="dater-invited-alert">
           <h4 class="alert-heading"> Email Sent!</h4>

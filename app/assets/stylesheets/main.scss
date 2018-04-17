@@ -1215,6 +1215,16 @@ td, th {
 .text-center {
   text-align: center;
 }
+.text-left{
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+.item-center {
+  justify-content: center;
+}
 
 .transition {
   -webkit-transition: all 0.3s ease 0s;

@@ -1,0 +1,25 @@
+<div class="search-for-new-dater" data-text="<%=current_user.id%>" >
+
+  <%= form_tag(:method => "get") do %>
+  <div class="input-group mb-3">
+    <%= text_field_tag :f_name, params[:f_name], placeholder: "First Name", class: 'form-control' %>
+    <%= text_field_tag :l_name, params[:l_name], placeholder: "Last Name", class: 'form-control'  %>
+    <div class="input-group-append">
+      <%= submit_tag "Search", :name => nil, class: 'btn btn-outline-secondary', type: 'button', id: "find-dater-by-name" %>
+    </div>
+  </div>
+  <% end %>
+
+  <%= form_tag({controller: "search", action: "index"}, method: "get") do %>
+      <div class="input-group mb-3">
+       <%= email_field_tag :email, params[:email], placeholder: "Email", class: 'form-control' %>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="find-dater-by-email">Search</button>
+      </div>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="invite-dater-button">Invite!</button>
+      </div>
+      </div>
+  <% end %>
+
+</div>

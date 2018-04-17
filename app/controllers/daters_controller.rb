@@ -15,7 +15,7 @@ class DatersController < ApplicationController
   # end
 
   def update
-    binding.pry
+    # binding.pry
     if image_params
         uploaded_io = params[:dater][:image]
         File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|

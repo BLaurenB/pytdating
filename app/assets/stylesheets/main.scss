@@ -143,6 +143,20 @@ $grey:  #EAEAEA;
   align-items: center;
 }
 
+.pool-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+}
+.pool-card-border {
+  border-width: thick;
+  border-color: navy;
+}
+
+
 .background-black {
   background-color: black, !important;
 }
@@ -1214,6 +1228,9 @@ td, th {
 
 .item-center {
   justify-content: center;
+}
+.image-center {
+  display: block;
 }
 
 .transition {

@@ -116,14 +116,14 @@
     </div>
 
 
+
 <button id="edit-user-profile-btn-mates" class="primary-btn btn-sm card-button"><span>Your Preferences for a Match</span></button>
     <div class="card-deck-none" id="mates">
-
       <%= render 'dater_mates' %>
-
     </div>
 
 
+</div>
 </div>
 
 <script>
@@ -153,15 +153,17 @@ $("#edit-user-profile-btn-traits").click(function() {
   event.preventDefault()
   $("#traits").toggleClass("card-deck")
 })
+
 $("#edit-user-profile-btn-personality").click(function() {
   event.preventDefault()
   $("#personality").toggleClass("card-deck")
 })
+
 $("#edit-user-profile-btn-mates").click(function() {
   event.preventDefault()
-  $("#mates").toggleClass("card-deck")
-})
 
+  $("#mates").toggleClass("card-deck-mates")
+})
 
 
 // DATER SEARCHES FOR BACKER BY NAME

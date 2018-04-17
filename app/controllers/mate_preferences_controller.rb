@@ -2,11 +2,11 @@
 
 class MatePreferencesController < ApplicationController
     def update
-      preference =current_dater.mate_preference
+      preference = current_dater.mate_preference
       if preference.update(mate_params)
         flash[:notice] = "successfully updated"
       end
-    redirect_to user_path(current_user)
+    redirect_to dater_path(current_dater)
     end
 
 
@@ -16,4 +16,3 @@ class MatePreferencesController < ApplicationController
       params.require(:mate_preference).permit(:smoker, :alcohol, :min_height, :max_height,:ethnicity,:education,:body_type,:zip_radius,:religion,:religiosity,:political_leaning,:politicalness,:has_kids,:wants_kids,:has_pets,:orientation,:gender)
     end
   end
-  

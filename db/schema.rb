@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 20180414214149) do
     t.index ["user_id"], name: "index_daters_on_user_id"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "subject"
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_images_on_user_id"
+  end
+
   create_table "mailboxer_conversation_opt_outs", id: :serial, force: :cascade do |t|
     t.string "unsubscriber_type"
     t.integer "unsubscriber_id"

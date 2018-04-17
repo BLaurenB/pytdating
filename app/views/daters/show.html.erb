@@ -57,18 +57,39 @@
 
 <button id="edit-user-profile-btn-pix" class="primary-btn btn-sm card-button"><span>Pictures</span></button>
   <div class="card-deck-none" id="pix">
+    <% if  current_dater.dater_images(current_user.id).empty?%>
+        <div class="card">
+          <div class="card-body">
+            Hmmm...You don't seem to have any pictures.
+              <%= form_for (current_dater) do |f| %>
+                <p class="list-group-item">Upload a Picture <%= f.file_field :image %></p>
+                <%= f.submit "    Save    ", class: "primary-btn btn-sm login-button" %>
+              <% end %>
+          </div>
+        </div>
 
+    <% else %>
       <div class="card-group">
         <% current_dater.dater_images(current_user.id).each do |image| %>
         <div class="card">
-          <%= image_tag image.file, class:'', size:"100x100" %>
+          <%#= image_tag image.file, class:'', size:"100x100" %>
           <div class="card-footer">
             <small class="text-muted">Remove</small>
           </div>
         </div>
       <% end  %>
       </div>
+      <div class="card">
+        <div class="card-body">
+            <%= form_for (current_dater) do |f| %>
+              <p class="list-group-item">Upload a Picture <%= f.file_field :image %></p>
+              <%= f.submit "    Save    ", class: "primary-btn btn-sm login-button" %>
+            <% end %>
+        </div>
+      </div>
 
+
+      <% end  %>
   </div>
 
 
@@ -80,7 +101,7 @@
 
 <button id="edit-user-profile-btn-personality" class="primary-btn btn-sm card-button"><span> Your Personality Traits</span></button>
     <div class="card-deck-none" id="personality">
-      
+
 
       <div class="card">
         <%= render 'p1'%>
@@ -98,11 +119,7 @@
 <button id="edit-user-profile-btn-mates" class="primary-btn btn-sm card-button"><span>Your Preferences for a Match</span></button>
     <div class="card-deck-none" id="mates">
 
-      <div class="card">
-        <div class="card-body">
-          This is some text within a card body.
-        </div>
-      </div>
+      <%= render 'dater_mates' %>
 
     </div>
 

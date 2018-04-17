@@ -724,6 +724,7 @@ a, a:focus, a:hover {
 .card-deck {
   display: flex !important;
   flex-flow: row wrap;
+  justify-content: center;
 }
 .card-deck-none {
   display: none;

@@ -62,7 +62,7 @@
     <div class="card-body">
       <h5 class="card-title">You'll get better match with a complete profile</h5>
       <p class="text-left">Backers:
-        <p class="text-left text-navy"> <%= current_dater.backers.length %></p>
+        <p class="text-left text-navy"> <%= current_dater.non_self_backers(current_dater).count %></p>
       <p class="text-left">PYT Photo: </p>
         <p class="text-left text-navy"> tbd...<%#= current_dater.pyt_image.nil? ? "Please take a photo!" : "Done" %></p>
       <p class="text-left">Physical Traits, Lifestyle, and Leanings: </p>
@@ -83,15 +83,23 @@
     <div class="card">
       <div class="card-body-center">
         <h5 class="card-title">They got your back:</h5>
-        <% if current_dater.backers.empty? %>
+
+        <% if current_dater.non_self_backers(current_dater).count == 0 %>
           <div class="alert alert-warning" role="alert">
             Wait, nobody's got your back? Connect your tribe.
           </div>
         <% else %>
+        <ul class="list-group list-group-flush">
           <% current_dater.backers.each do |b| %>
-          <p class="text-left"><%= b.f_name.capitalize %> </p>
+            <% if b.id == current_dater.id %>
+            <% else %>
+            <li class="list-group-item"><%= b.f_name.capitalize %> </li>
+            <% end %>
           <% end %>
+        </ul>
         <% end %>
+        <br>
+        <h5 class="card-title">Petition Your Tribe! Add another Backer:</h5>
         <%= render 'add_backer' %>
         <p class="text-left"><small class="text-muted"></small></p>
       </div>

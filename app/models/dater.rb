@@ -16,6 +16,10 @@ class Dater < ApplicationRecord
     end
   end
 
+  def non_self_backers(dater)
+    DaterBacker.where(dater_id: dater.id).where.not(backer_id: dater.id)
+  end
+
   def traits_complete?(current_dater_id)
     Trait.find_by_sql(["select traits.* from traits inner join daters on traits.dater_id = ?", current_dater_id]).any? {|t| t != nil}
   end

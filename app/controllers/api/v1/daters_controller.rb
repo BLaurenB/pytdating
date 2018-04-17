@@ -1,4 +1,4 @@
-class Api::V1::DatersController < ApplicationController
+class Api::V1::DatersController < ApiController
 
   def index
     render json: Dater.all

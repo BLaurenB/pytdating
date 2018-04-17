@@ -1,4 +1,4 @@
-class Api::V1::BackersController < ApplicationController
+class Api::V1::BackersController < ApiController
 
   def index
     render json: Backer.all
@@ -6,6 +6,6 @@ class Api::V1::BackersController < ApplicationController
 
   def show
     render json: Backer.find(params[:id])
-  end 
+  end
 
 end

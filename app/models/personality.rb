@@ -1,7 +1,5 @@
 class Personality < ApplicationRecord
-  belongs_to :dater
-  belongs_to :backer
-
+  belongs_to :dater_backer
 
 
 end

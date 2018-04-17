@@ -42,7 +42,8 @@ Rails.application.routes.draw do
       namespace :backers do
         get "/:id/daters", to: "daters#index"
       end
-      get 'api/v1/dater_backers/personalities', to: "personalities#update"
+      get 'dater_backers/:id/personalities', to: "personalities#show"
+      patch 'dater_backers/:id/personalities', to: "personalities#update"
     end
   end
 end

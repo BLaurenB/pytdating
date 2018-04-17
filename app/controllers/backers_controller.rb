@@ -6,6 +6,7 @@ class BackersController < ApplicationController
 
   def show
     @backer = Backer.find(params[:id])
+  
   end
 
   def edit
@@ -20,5 +21,5 @@ class BackersController < ApplicationController
   private
     def backer_params
       params.require(:backer).permit(:image)
-    end 
+    end
 end

@@ -10,7 +10,7 @@
   </div>
   <% end %>
 
-  <%= form_tag({controller: "search", action: "index"}, method: "get") do %>
+  <%= form_tag({controller: "search", action: "index"}, method: "get", class: 'form-search-by-dater-email') do %>
       <div class="input-group mb-3">
        <%= email_field_tag :email, params[:email], placeholder: "Email", class: 'form-control' %>
       <div class="input-group-append">

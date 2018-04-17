@@ -1,8 +1,8 @@
         <div class="card-body" id ='' >
           <h5 class="center-text"> 1 is "least like me" and 5 is "most like me"</h5>
           <br>
-            <p class="card-text">How Charitable are you?</p>
-            <div><input type="range" min="1" max="5" value="3" id= "charitable" class="slider"></div>
+            <p class="card-text">How haritable are you?</p>
+            <input type="range" min="1" max="5" value="3" id= "charitable" class="slider">
                 <br>
             <p class="card-text">How intellegent are you?</p>
                  <input type="range" min="1" max="5" value="5" id= "intelligent" class="slider">
@@ -23,14 +23,29 @@
         </div>
 
 <script>
-
+let traitHash
 
 $('#personality').on("click", "#p1-submit", function(event) {
+  console.log(event)
+  let pTraits = Array.from(event.currentTarget.offsetParent.childNodes[1].children)
 
-  let pTraits = event.currentTarget.offsetParent.childNodes[1].children
   //create an object to 'POST' to /dater_backers/personalities... or send to
-  traitHash = pTraits.reduce()
+  traitHash = pTraits.reduce(function(newObj, trait) {
+    if (trait.id) {
+      newObj[trait.id] = trait.value
+      return newObj
+    } else {
+    return newObj
+    }
+  }, {})
 
+  fetch(`http://localhost:3000/api/v1/dater_backers/personalities`, {
+    method: 'PATCH',
+  	mode: 'cors',
+  	headers: 'Content-Type': 'applicaiton/json',
+    body: JSON.stringify(traitHash)
+    })
+    .then((response) => console.log(response)
 })
 
 </script>

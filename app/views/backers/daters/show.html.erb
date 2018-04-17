@@ -1,52 +1,7 @@
 <div class="dashboard-header">
   <h2><%= current_dater.f_name %>'s Profile</h2>
-
-
-  <div class="card text-center">
-      <div class="card-header">
-        ADD TO POOL  |  MESSAGE ME
-      </div>
-
-      <div class="card-body item-center">
-        <h5 class="card-title"><%= current_dater.f_name %></h5>
-        <div class="item-center" ><%= image_tag current_user.image.url, class:'', size:"250x250" %></div>
-      </div>
-
-      <div class="card-group">
-        <div class="card">
-          <div class="card-body">
-            <p class="card-text text-left">Age: </p>
-            <p class="card-text text-left">Location: </p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-           <p class="card-text text-left">Gender: </p>
-           <p class="card-text text-left">Orientation: </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-group">
-        <div class="card">
-          <div class="card-body">
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-           <a href="#" class="btn btn-primary">Go somewhere else </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-footer text-muted"><br></div>
-</div>
-
-
-
 <div class="card" style="width=100%">
-<br>
+
 <h3>Your DATER Profile is <%= %> % complete</h3>
 <button id="edit-user-profile-btn-percent" class="primary-btn btn-sm card-button"><span>% Complete</span></button>
 <div class="card-deck-none" id="percent-complete">
@@ -106,7 +61,7 @@
       <div class="card-group">
         <% current_dater.dater_images(current_user.id).each do |image| %>
         <div class="card">
-          <%#= image_tag image.file, class:'', size:"100x100" %>
+          <%= image_tag image.file, class:'', size:"100x100" %>
           <div class="card-footer">
             <small class="text-muted">Remove</small>
           </div>
@@ -125,7 +80,7 @@
 
 <button id="edit-user-profile-btn-personality" class="primary-btn btn-sm card-button"><span> Your Personality Traits</span></button>
     <div class="card-deck-none" id="personality">
-
+      
 
       <div class="card">
         <%= render 'p1'%>

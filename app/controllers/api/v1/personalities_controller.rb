@@ -5,11 +5,6 @@ class Api::V1::PersonalitiesController < ApiController
   end
 
   def update
-<<<<<<< HEAD
-    # binding.pry
-=======
-     
->>>>>>> erbs
     personality = Personality.find_by(dater_backer_id: params[:id])
 
     if personality.update(person_params)

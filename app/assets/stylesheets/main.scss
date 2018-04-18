@@ -9,7 +9,7 @@ $facebook-color: #3b5999;
 
 
 .card:hover{
-  box-shadow: 1em 1em 2em rgba(0,0,0,.2);
+  // box-shadow: 1em 1em 2em rgba(0,0,0,.2);
 }
 .pyt-logo{
 
@@ -74,7 +74,7 @@ $facebook-color: #3b5999;
   background-color: white;
   border-radius: 0;
   border: 0;
-  box-shadow: 1em 1em 2em rgba(0,0,0,.2);
+  // box-shadow: 1em 1em 2em rgba(0,0,0,.2);
 
   .card-img-top {
     border-radius: 0;
@@ -367,10 +367,16 @@ td{
   // display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
 }
-.page-padding {
-  padding-left: 5%;
-  padding-right: 5%;
+.no-page-padding {
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 0%;
+  padding-right: 0%;
+  padding-bottom: 0%;
 
 }
 
@@ -473,7 +479,7 @@ body{
 .dater-tab-container{
   margin-top:20px;
   display:flex;
-  box-shadow: 1em 1em 2em rgba(0,0,0,.2);
+  // box-shadow: 1em 1em 2em rgba(0,0,0,.2);
 
 
   flex-direction:row;

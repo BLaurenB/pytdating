@@ -1,6 +1,11 @@
 <div class="dashboard-header">
   <h2> <%= @dater.f_name %>'s Pool</h2>
 
+  <% if @daters.empty? %>
+  <div class="alert alert-warning" role="alert">
+    Hmmm...Seems a bit lonely in here. Go check out all the daters!
+  </div>
+  <% else %>
 
     <div class="card-deck item-center">
       <% @matches.each do |match| %>
@@ -30,5 +35,5 @@
       <% end %>
     </div>
 
-
+<% end %>
 </div>

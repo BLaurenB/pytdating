@@ -190,7 +190,7 @@ $("#edit-user-profile-btn-mates").click(function() {
       let last =  event.target.offsetParent.childNodes[3].value
       let currentUser = document.location.pathname.substr(11)
 
-            fetch(`http://localhost:3000/api/v1/users?f_name=${first}&l_name=${last}`)
+            fetch(`https://pytdating-live.herokuapp.com/api/v1/users?f_name=${first}&l_name=${last}`)
             .then((response) => response.json())
             .then((parsedBackers) => {
               console.log("line 122", parsedBackers)
@@ -235,7 +235,7 @@ $("#edit-user-profile-btn-mates").click(function() {
       event.preventDefault()
       let backerId = event.currentTarget.dataset.text
 
-      $.get(`http://localhost:3000/invites?backer_id=${backerId}`)
+      $.get(`https://pytdating-live.herokuapp.com/invites?backer_id=${backerId}`)
       $("#your-backers").append(`
         <div class="alert alert-success" role="alert" id="dater-invited-alert">
           <h4 class="alert-heading"> Email Sent!</h4>
@@ -249,7 +249,7 @@ $("#edit-user-profile-btn-mates").click(function() {
     $(".card-body-center").on("click", "#invite-backer-button", function(event) {
       event.preventDefault()
       let email = event.target.offsetParent.childNodes[1].value
-      $.get(`http://localhost:3000/invites?email=${email}&add_backer=true`)
+      $.get(`https://pytdating-live.herokuapp.com/invites?email=${email}&add_backer=true`)
       $("#your-backers").append(`
         <div class="alert alert-success" role="alert" id="dater-invited-alert">
           <h4 class="alert-heading"> Email Sent!</h4>

@@ -14,6 +14,15 @@ class Api::V1::PersonalitiesController < ApiController
     end
   end
 
+  def create
+    personality = Personality.create(dater_backer_id: params[:id])
+    if personality.update(person_params)
+      render json: personality
+    else
+      render json: personality.errors, status: 400
+    end
+
+  end
 
   private
   def person_params

@@ -37,7 +37,7 @@ class Dater < ApplicationRecord
   end
 
   def avg_personality(id, trait)
-    Personality.joins(:dater_backer).where("dater_backers.dater_id = #{id}").average("#{trait}")
+    Personality.joins(:dater_backer).where("dater_backers.dater_id = #{id}").average("#{trait}").round(1)
   end
 
   # Personality.find_by_sql(["SELECT AVG(NULLIF(personalities.charitable,0)) FROM personalities INNER JOIN  dater_backers ON personalities.dater_backer_id = dater_backers.id INNER JOIN  daters ON dater_backers.dater_id = 1"])

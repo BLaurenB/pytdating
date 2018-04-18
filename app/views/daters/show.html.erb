@@ -9,7 +9,7 @@
 
       <div class="card-body item-center">
         <h5 class="card-title"><%= @dater.f_name %></h5>
-        <div class="item-center" ><%= image_tag current_user.image.url, class:'', size:"250x250" %></div>
+        <div class="item-center" ><%= image_tag @dater.user.image.url, class:'', size:"250x250" %></div>
       </div>
 
       <div class="card-group">
@@ -217,7 +217,7 @@
 $(".add-me-button").click(function(event) {
   event.preventDefault()
   matchParams = event.currentTarget.id
-  fetch(`https://pytdating-live.herokuapp.com/api/v1/pool?${matchParams}`)
+  fetch(`http://localhost:3000/api/v1/pool?${matchParams}`)
   .then((response) => console.log(response))
 })
 </script>

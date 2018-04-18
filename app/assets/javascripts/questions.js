@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
 const postComment = (bod,backer,dater) => {  
-    return fetch(`https://pytdating-live.herokuapp.com/backers/${backer}/daters/${dater}/comments`, {
+    return fetch(`http://localhost:3000/backers/${backer}/daters/${dater}/comments`, {
         body: JSON.stringify(bod), // must match 'Content-Type' header
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, same-origin, *omit

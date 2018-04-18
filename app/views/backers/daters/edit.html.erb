@@ -1,0 +1,89 @@
+<div class="dashboard-header">
+  <h2><%= @dater.f_name %>'s Profile</h2>
+<div class="card card-no-lines" style="width=100%">
+
+<h3><%= @dater.f_name%> 's DATER Profile is <%= %> % complete</h3> <a href="<%=dater_path(@dater)%>" class="primary-btn btn-sm login-button"><%= @dater.f_name %>'s Public Profile </a>
+<button id="edit-user-profile-btn-percent" class="primary-btn btn-sm card-button"><span>% Complete</span></button>
+<div class="card-deck-none" id="percent-complete">
+
+
+</div>
+
+
+
+<button id="edit-user-profile-btn-pix" class="primary-btn btn-sm card-button"><span>Pictures</span></button>
+  <div class="card-deck-none" id="pix">
+
+      <div class="card-group">
+        Upload pictures to help potential matches see your Tribe in the best light!
+        <% @dater.dater_images(current_user.id).each do |image| %>
+        <div class="card">
+          <%= image_tag image.file, class:'', size:"100x100" %>
+          <div class="card-footer">
+            <small class="text-muted">Remove</small>
+          </div>
+        </div>
+      <% end  %>
+      </div>
+
+  </div>
+
+
+
+<button id="edit-user-profile-btn-personality" class="primary-btn btn-sm card-button"><span> <%= @dater.f_name%> 's Personality Traits</span></button>
+    <div class="card-deck-none" id="personality">
+
+
+      <div class="card">
+        <%= render 'p1'%>
+      </div>
+      <div class="card">
+        <%= render 'p2'%>
+      </div>
+      <div class="card">
+        <%= render 'p3'%>
+      </div>
+
+    </div>
+
+
+<button id="edit-user-profile-btn-questions" class="primary-btn btn-sm card-button"><span>Answer Questions about <%= @dater.f_name%> </span></button>
+    <div class="card-deck-none" id="questions">
+
+      <div class="card">
+        <div class="card-body">
+
+        </div>
+      </div>
+
+    </div>
+
+
+</div>
+
+<script>
+
+$("#edit-user-profile-btn-percent").click(function() {
+  event.preventDefault()
+  $("#percent-complete").toggleClass("card-deck")
+})
+
+
+$("#edit-user-profile-btn-pix").click(function() {
+  event.preventDefault()
+  $("#pix").toggleClass("card-deck")
+})
+
+
+$("#edit-user-profile-btn-personality").click(function() {
+  event.preventDefault()
+  $("#personality").toggleClass("card-deck")
+})
+$("#edit-user-profile-btn-questions").click(function() {
+  event.preventDefault()
+  $("#questions").toggleClass("card-deck")
+})
+
+
+
+</script>

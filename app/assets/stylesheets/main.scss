@@ -130,8 +130,11 @@ $grey:  #EAEAEA;
   color:black;
 }
 
-.card {
-  // background-color: $lt-teal;
+.card-no-lines {
+  border-radius: 0;
+  border-color: white;
+  border-width: 0;
+
 }
 
 .card-body{

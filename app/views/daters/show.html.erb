@@ -1,14 +1,14 @@
 <div class="dashboard-header">
-  <h2 class="text-accent"><%= current_dater.f_name %>'s Profile</h2>
+  <h2 class="text-accent"><%= @dater.f_name %>'s Profile</h2>
 
 
   <div class="card card-no-lines text-center">
-      <div class="card-header">
-        <a href="#" class="primary-btn btn-sm login-button">Add To Pool</a><a href="#" class="primary-btn btn-sm login-button">Message Me</a>
+      <div class="">
+        <a href="#" class="primary-btn btn-sm login-button add-me-button" id="<%= @params %>">Add To Pool</a><a href="#" class="primary-btn btn-sm login-button">Message Me</a>
       </div>
 
       <div class="card-body item-center">
-        <h5 class="card-title"><%= current_dater.f_name %></h5>
+        <h5 class="card-title"><%= @dater.f_name %></h5>
         <div class="item-center" ><%= image_tag current_user.image.url, class:'', size:"250x250" %></div>
       </div>
 
@@ -40,9 +40,9 @@
         </div>
       </div> -->
 
-      <div class="card-footer text-muted"><br></div>
+      <div class="text-muted"><br></div>
 </div>
-<div class="card" style="width=100%">
+<div class="card card-no-lines" style="width=100%">
 
 <br>
 <h2 class="text-accent">About <%= @dater.f_name %></h2>
@@ -99,31 +99,31 @@
     <div class="card card-no-lines profile-card">
         <table class="table table-striped">
           <thead>
-            <tr>
-                <th scope="col">Persronality Trait</th>
+            <tr class="text-navy">
+                <th scope="col">Personality Trait</th>
                 <th scope="col">Average</th>
             </tr>
           </thead>
           <tbody>
             <tr>
                <td>  Independent: </td>
-               <td>  <%= @dater.avg_personality(current_dater.id, "independent") %></td>
+               <td>  <%= @dater.avg_personality(@dater.id, "independent") %></td>
             </tr>
             <tr>
                <td> Friendly: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "friendly") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "friendly") %></td>
             </tr>
             <tr>
                <td> Shy: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "shy") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "shy") %></td>
             </tr>
             <tr>
                <td> Spontaneous: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "spontaneous") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "spontaneous") %></td>
             </tr>
             <tr>
                <td> Organized: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "organized") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "organized") %></td>
             </tr>
           </tbody>
         </table>
@@ -131,7 +131,7 @@
     <div class="card card-no-lines profile-card">
         <table class="table table-striped">
           <thead>
-            <tr>
+            <tr class="text-navy">
                 <th scope="col">Persronality Trait</th>
                 <th scope="col">Average</th>
             </tr>
@@ -139,23 +139,23 @@
           <tbody>
             <tr>
                <td> Funny: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "funny") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "funny") %></td>
             </tr>
             <tr>
                <td> Silly: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "silly") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "silly") %></td>
             </tr>
             <tr>
                <td> Adaptable: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "adaptable") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "adaptable") %></td>
             </tr>
             <tr>
                <td> Confident: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "confident") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "confident") %></td>
             </tr>
             <tr>
                <td> Energetic: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "energetic") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "energetic") %></td>
             </tr>
           </tbody>
         </table>
@@ -163,7 +163,7 @@
     <div class="card card-no-lines profile-card">
         <table class="table table-striped">
           <thead>
-            <tr>
+            <tr class="text-navy">
                 <th scope="col">Persronality Trait</th>
                 <th scope="col">Average</th>
             </tr>
@@ -171,23 +171,23 @@
           <tbody>
             <tr>
                <td> Relaxed: </td>
-               <td><%= @dater.avg_personality(current_dater.id, "relaxed") %></td>
+               <td><%= @dater.avg_personality(@dater.id, "relaxed") %></td>
             </tr>
             <tr>
                <td> Patient: </td>
-               <td><%= @dater.avg_personality(current_dater.id, "patient") %> </td>
+               <td><%= @dater.avg_personality(@dater.id, "patient") %> </td>
             </tr>
             <tr>
                <td> Logical: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "logical") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "logical") %></td>
             </tr>
             <tr>
                <td> Intelligent: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "intelligent") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "intelligent") %></td>
             </tr>
             <tr>
                <td> Charitable: </td>
-               <td> <%= @dater.avg_personality(current_dater.id, "charitable") %></td>
+               <td> <%= @dater.avg_personality(@dater.id, "charitable") %></td>
             </tr>
           </tbody>
         </table>
@@ -213,4 +213,11 @@
 </div>
 
 <script>
+
+$(".add-me-button").click(function(event) {
+  event.preventDefault()
+  matchParams = event.currentTarget.id
+  fetch(`http://localhost:3000/api/v1/pool?${matchParams}`)
+  .then((response) => console.log(response))
+})
 </script>

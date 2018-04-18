@@ -7,6 +7,7 @@ class DatersController < ApplicationController
   def show
     @dater = Dater.find(params[:id])
     @dater_backer_id = DaterBacker.where(dater_id: @dater.id, backer_id: @dater.id).first.id
+    @params = params
   end
 
   def edit

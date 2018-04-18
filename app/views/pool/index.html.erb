@@ -1,7 +1,7 @@
 <div class="dashboard-header">
   <h2> <%= @dater.f_name %>'s Pool</h2>
 
-  <% if @daters.empty? %>
+  <% if @matches.count == 0 %>
   <div class="alert alert-warning" role="alert">
     Hmmm...Seems a bit lonely in here. Go check out all the daters!
   </div>

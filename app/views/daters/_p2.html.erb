@@ -43,7 +43,7 @@ $('#personality').on("click", "#p2-submit", function(event) {
   }, {})
   console.log("JSON-i-fied", JSON.stringify({"personality": traitHash }))
 
-  fetch(`https://pytdating-live.herokuapp.com/api/v1/dater_backers/${id}/personalities`, {
+  fetch(`http://localhost:3000/api/v1/dater_backers/${id}/personalities`, {
     method: 'PATCH',
   	// mode: 'cors',
   	headers: {'Content-Type': 'application/json'},

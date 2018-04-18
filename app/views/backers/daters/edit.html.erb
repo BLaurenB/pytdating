@@ -1,8 +1,12 @@
 <div class="dashboard-header">
-  <h2><%= @dater.f_name %>'s Profile</h2>
+  <h2> <%= current_dater.f_name %>'s Backer Hub</h2>
+  <h3><%= @dater.f_name %>'s Profile</h3>
 <div class="card card-no-lines" style="width=100%">
 
-<h3><%= @dater.f_name%> 's DATER Profile is <%= %> % complete</h3> <a href="<%=dater_path(@dater)%>" class="primary-btn btn-sm login-button"><%= @dater.f_name %>'s Public Profile </a>
+<h3>DATER Profile is <%= %> ?? % complete</h3>
+
+<button id="" class="primary-btn btn-sm card-button"><a href="<%=dater_path(@dater)%>"><span><%= @dater.f_name %>'s Public Profile </span></a></button>
+
 <button id="edit-user-profile-btn-percent" class="primary-btn btn-sm card-button"><span>% Complete</span></button>
 <div class="card-deck-none" id="percent-complete">
 

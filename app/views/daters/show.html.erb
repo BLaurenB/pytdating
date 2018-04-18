@@ -52,11 +52,11 @@
 <div class="card-deck">
 
   <div class="card">
-    <div class="card-body">
+    <div class="card-body trait-col-width">
       <h5 class="card-title">Physical</h5>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Height: <%= @dater.trait.height/12.round %>' <%=@dater.trait.height%12 %>"</li>
-        <li class="list-group-item">Build: <%= @dater.trait.body_type %></li>
+        <li class="list-group-item">Build: <%= @dater.trait.body_type.humanize %></li>
         <li class="list-group-item">Smoker: <%= @dater.trait.smoker %></li>
         <li class="list-group-item">Drinking: <%= @dater.trait.alcohol %></li>
         <!-- <li class="list-group-item">Ethnicity: <%= @dater.trait.ethnicity %></li> -->
@@ -64,20 +64,20 @@
     </div>
     </div>
     <div class="card">
-    <div class="card-body">
+    <div class="card-body trait-col-width">
       <h5 class="card-title">Personal</h5>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Education: <%= @dater.trait.education %></li>
         <li class="list-group-item">Occupation: <%= @dater.trait.occupation %></li>
         <li class="list-group-item">Beliefs: <%= @dater.trait.religion %></li>
         <li class="list-group-item">How important are their beliefs: <%= @dater.trait.religiosity %></li>
-        <li class="list-group-item">Political Leaning: <%= @dater.trait.political_leaning %></li>
+        <li class="list-group-item">Political Leaning: <%= @dater.trait.political_leaning.humanize %></li>
         <li class="list-group-item">How important are their politics: <%= @dater.trait.politicalness %></li>
       </ul>
     </div>
     </div>
     <div class="card">
-    <div class="card-body">
+    <div class="card-body trait-col-width">
       <h5 class="card-title">Family</h5>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Has Kids: <%= @dater.trait.has_kids %></li>
@@ -96,7 +96,7 @@
 
 
   <div class="card-deck">
-    <div class="card card-no-lines profile-card">
+    <div class="card card-no-lines profile-card trait-col-width">
         <table class="table table-striped">
           <thead>
             <tr class="text-navy">
@@ -128,7 +128,7 @@
           </tbody>
         </table>
     </div>
-    <div class="card card-no-lines profile-card">
+    <div class="card card-no-lines profile-card trait-col-width">
         <table class="table table-striped">
           <thead>
             <tr class="text-navy">
@@ -160,7 +160,7 @@
           </tbody>
         </table>
     </div>
-    <div class="card card-no-lines profile-card">
+    <div class="card card-no-lines profile-card trait-col-width">
         <table class="table table-striped">
           <thead>
             <tr class="text-navy">

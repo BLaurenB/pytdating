@@ -41,7 +41,7 @@ $('#personality').on("click", "#p1-submit", function(event) {
   }, {})
   console.log("JSON-i-fied", JSON.stringify({"personality": traitHash }))
 
-  fetch(`http://localhost:3000/api/v1/dater_backers/${id}/personalities`, {
+  fetch(` http:localhost:3000/api/v1/dater_backers/${id}/personalities`, {
     method: 'PATCH',
   	// mode: 'cors',
   	headers: {'Content-Type': 'application/json'},

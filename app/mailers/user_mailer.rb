@@ -2,7 +2,7 @@ class UserMailer < ApplicationMailer
   default from: "pytdating@gmail.com"
 
   def dater_requests_backer(dater, email_new_user)
-    # binding.pry
+    #  
     @email_new_user = email_new_user
     @requestor = dater
     @url  = "https://pytdating-live.herokuapp.com/auth/google_oauth2?requestor-dates=#{@requestor.id}"
@@ -29,7 +29,7 @@ class UserMailer < ApplicationMailer
 
                       :html    => render_to_string(template: "../views/user_mailer/backer_requests_dater.html.erb").to_str
                       }
-                      binding.pry
+                       
     mg_client.send_message ENV['domain'], message_params
   end
 

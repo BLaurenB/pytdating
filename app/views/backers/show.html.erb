@@ -85,7 +85,7 @@ $("#dater-button").click(function() {
       let currentUser = <%= current_user.id %>
       console.log(currentUser )
 
-            fetch(`http://localhost:3000/api/v1/users?f_name=${first}&l_name=${last}`)
+            fetch(` http:localhost:3000/api/v1/users?f_name=${first}&l_name=${last}`)
             .then((response) => response.json())
             .then((parsedDaters) => {
               console.log("line 90", parsedDaters)
@@ -134,7 +134,7 @@ $("#dater-button").click(function() {
     $(".search-for-new-dater").on("click", "#invite-dater-button", function(event) {
       event.preventDefault()
       let email = event.target.offsetParent.childNodes[1].value
-      $.get(`http://localhost:3000/invites?email=${email}&add_dater=true`)
+      $.get(` http:localhost:3000/invites?email=${email}&add_dater=true`)
 
       $("#connect-daters").append(`
         <div class="alert alert-success" role="alert" id="dater-invited-alert">
@@ -149,7 +149,7 @@ $("#dater-button").click(function() {
       let email = event.target.offsetParent.childNodes[1].value
       console.log(email)
 
-      fetch(`http://localhost:3000/api/v1/users?email=${email}`)
+      fetch(` http:localhost:3000/api/v1/users?email=${email}`)
       .then((response) => response.json())
       .then((parsedDater) => {
         console.log("line 90", parsedDater)
@@ -162,7 +162,7 @@ $("#dater-button").click(function() {
            </div>`)
           $("#dater-not-found-alert").delay( 3000 ).fadeOut( 300 )
         } else {
-          $.get(`http://localhost:3000/invites?email=${email}&add_dater=true`)
+          $.get(` http:localhost:3000/invites?email=${email}&add_dater=true`)
 
           $("#connect-daters").append(`
             <div class="alert alert-success" role="alert" id="dater-invited-alert">
@@ -179,7 +179,7 @@ $("#dater-button").click(function() {
       let daterId= event.currentTarget.dataset.text
       console.log(email)
 
-      $.get(`http://localhost:3000/invites?dater_id=${daterId}`)
+      $.get(` http:localhost:3000/invites?dater_id=${daterId}`)
       $("#connect-daters").append(`
         <div class="alert alert-success" role="alert" id="dater-invited-alert">
           <h4 class="alert-heading"> Email Sent!</h4>

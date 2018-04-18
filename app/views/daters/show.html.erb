@@ -1,10 +1,10 @@
 <div class="dashboard-header">
-  <h2><%= current_dater.f_name %>'s Profile</h2>
+  <h2 class="text-accent"><%= current_dater.f_name %>'s Profile</h2>
 
 
   <div class="card text-center">
       <div class="card-header">
-        ADD TO POOL  |  MESSAGE ME
+        <a href="#" class="primary-btn btn-sm login-button">Add To Pool</a><a href="#" class="primary-btn btn-sm login-button">Message Me</a>
       </div>
 
       <div class="card-body item-center">
@@ -15,88 +15,79 @@
       <div class="card-group">
         <div class="card">
           <div class="card-body">
-            <p class="card-text text-left">Age: </p>
-            <p class="card-text text-left">Location: </p>
+            <p class="card-text text-left">Age: <%=  %></p>
+            <p class="card-text text-left">Location: <%= @dater.trait.zip %></p>
           </div>
         </div>
         <div class="card">
           <div class="card-body">
-           <p class="card-text text-left">Gender: </p>
-           <p class="card-text text-left">Orientation: </p>
+           <p class="card-text text-left">Gender: <%= @dater.trait.gender %></p>
+           <p class="card-text text-left">Orientation: <%= @dater.trait.orientation %></p>
           </div>
         </div>
       </div>
 
-      <div class="card-group">
+      <!-- <div class="card-group">
         <div class="card">
-          <div class="card-body">
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="card-body item-center">
+              <a href="#" class="primary-btn btn-sm login-button"></a>
           </div>
         </div>
         <div class="card">
-          <div class="card-body">
-           <a href="#" class="btn btn-primary">Go somewhere else </a>
+          <div class="card-body item-center">
+             <a href="#" class="primary-btn btn-sm login-button">View</a>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="card-footer text-muted"><br></div>
 </div>
-
-
-
 <div class="card" style="width=100%">
+
 <br>
-<h3>Your DATER Profile is <%= %> % complete</h3>
-<button id="edit-user-profile-btn-percent" class="primary-btn btn-sm card-button"><span>% Complete</span></button>
-<div class="card-deck-none" id="percent-complete">
+<h2 class="text-accent">About <%= @dater.f_name %></h2>
+<br>
+<div class="text-center text-navy"><h3> <%= @dater.f_name%>'s Life N Stuff </h3></div>
+<br>
+<div class="card-deck">
+
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">You can't view the Whole Pool until the following are complete</h5>
-      <p class="text-left">Take at least one photo using PYT Dating's photo service</p>
-      <p class="text-left">Have at least one backer</p>
-      <p class="text-left"><small class="text-muted"></small></p>
+      <h5 class="card-title">Physical</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Height: <%= @dater.trait.height/12.round %>' <%=@dater.trait.height%12 %>"</li>
+        <li class="list-group-item">Build: <%= @dater.trait.body_type %></li>
+        <li class="list-group-item">Smoker: <%= @dater.trait.smoker %></li>
+        <li class="list-group-item">Drinking: <%= @dater.trait.alcohol %></li>
+        <!-- <li class="list-group-item">Ethnicity: <%= @dater.trait.ethnicity %></li> -->
+      </ul>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">You'll get better match with a complete profile</h5>
-      <p class="text-left">Backers:
-        <p class="text-left text-navy"> <%= current_dater.backers.length %></p>
-      <p class="text-left">PYT Photo: </p>
-        <p class="text-left text-navy"> tbd...<%#= current_dater.pyt_image.nil? ? "Please take a photo!" : "Done" %></p>
-      <p class="text-left">Physical Traits, Lifestyle, and Leanings: </p>
-        <p class="text-left text-navy"> <%= current_dater.traits_complete?(current_dater.id) ? "At least one has been left blank" : "Done" %></p>
-      <p class="text-left">Personality Traits: </p>
-        <p class="text-left text-navy"> <%= current_dater.personalities_complete?(current_dater.id) ? "At least one has been left blank" : "Done" %></p>
-      <p class="text-left">Mate Trait Preferences:</p>
-        <p class="text-left text-navy">  <%= current_dater.mate_preferences_complete?(current_dater.id)  ? "At least one has been left blank" : "Done" %></p>
-      <p class="text-left"><small class="text-muted"></small></p>
     </div>
-  </div>
-</div>
-
-
-<button id="edit-user-profile-btn-backers" class="primary-btn btn-sm card-button"><span>Your Backers</span></button>
-<div id="your-backers">
-  <div class="card-deck-none" id="your-backers-deck">
     <div class="card">
-      <div class="card-body-center">
-        <h5 class="card-title">They got your back:</h5>
-        <% if current_dater.backers.empty? %>
-          <div class="alert alert-warning" role="alert">
-            Wait, nobody's got your back? Connect your tribe.
-          </div>
-        <% else %>
-          <% current_dater.backers.each do |b| %>
-          <p class="text-left"><%= b.f_name.capitalize %> </p>
-          <% end %>
-        <% end %>
-        <%= render 'add_backer' %>
-        <p class="text-left"><small class="text-muted"></small></p>
-      </div>
+    <div class="card-body">
+      <h5 class="card-title">Personal</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Education: <%= @dater.trait.education %></li>
+        <li class="list-group-item">Occupation: <%= @dater.trait.occupation %></li>
+        <li class="list-group-item">Beliefs: <%= @dater.trait.religion %></li>
+        <li class="list-group-item">How important are their beliefs: <%= @dater.trait.religiosity %></li>
+        <li class="list-group-item">Political Leaning: <%= @dater.trait.political_leaning %></li>
+        <li class="list-group-item">How important are their politics: <%= @dater.trait.politicalness %></li>
+      </ul>
+    </div>
+    </div>
+    <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Family</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Has Kids: <%= @dater.trait.has_kids %></li>
+        <li class="list-group-item">Wants (more) Kids: <%= @dater.trait.wants_kids %></li>
+        <li class="list-group-item">Has pets: <%= @dater.trait.has_pets %></li>
+      </ul>
+    </div>
     </div>
   </div>
+<<<<<<< HEAD
 </div>
 
 
@@ -136,42 +127,141 @@
 
       <% end  %>
   </div>
+=======
+
+</div>
+
+<br>
+<div class="text-center text-navy"><h3>  <%= @dater.f_name%>'s Personality </h3></div>
+<br>
+>>>>>>> erbs
 
 
-<button id="edit-user-profile-btn-traits" class="primary-btn btn-sm card-button"><span>Your Physical Traits, Lifestyle, and Leanings</span></button>
-  <div class="card-deck-none" id="traits">
-    <%= render 'dater_traits' %>
+  <div class="card-deck">
+    <div class="card profile-card">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th scope="col">Persronality Trait</th>
+                <th scope="col">Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+               <td>  Independent: </td>
+               <td>  <%= @dater.avg_personality(current_dater.id, "independent") %></td>
+            </tr>
+            <tr>
+               <td> Friendly: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "friendly") %></td>
+            </tr>
+            <tr>
+               <td> Shy: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "shy") %></td>
+            </tr>
+            <tr>
+               <td> Spontaneous: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "spontaneous") %></td>
+            </tr>
+            <tr>
+               <td> Organized: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "organized") %></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="card profile-card">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th scope="col">Persronality Trait</th>
+                <th scope="col">Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+               <td> Funny: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "funny") %></td>
+            </tr>
+            <tr>
+               <td> Silly: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "silly") %></td>
+            </tr>
+            <tr>
+               <td> Adaptable: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "adaptable") %></td>
+            </tr>
+            <tr>
+               <td> Confident: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "confident") %></td>
+            </tr>
+            <tr>
+               <td> Energetic: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "energetic") %></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="card profile-card">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th scope="col">Persronality Trait</th>
+                <th scope="col">Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+               <td> Relaxed: </td>
+               <td><%= @dater.avg_personality(current_dater.id, "relaxed") %></td>
+            </tr>
+            <tr>
+               <td> Patient: </td>
+               <td><%= @dater.avg_personality(current_dater.id, "patient") %> </td>
+            </tr>
+            <tr>
+               <td> Logical: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "logical") %></td>
+            </tr>
+            <tr>
+               <td> Intelligent: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "intelligent") %></td>
+            </tr>
+            <tr>
+               <td> Charitable: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "charitable") %></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
   </div>
 
 
-<button id="edit-user-profile-btn-personality" class="primary-btn btn-sm card-button"><span> Your Personality Traits</span></button>
-    <div class="card-deck-none" id="personality">
+
+<br>
+<div class="text-center text-navy"><h3> <%= @dater.f_name %>'s Pictures </h3></div>
+<br>
 
 
-      <div class="card">
-        <%= render 'p1'%>
-      </div>
-      <div class="card">
-        <%= render 'p2'%>
-      </div>
-      <div class="card">
-        <%= render 'p3'%>
-      </div>
-
-    </div>
-
-
-
+<<<<<<< HEAD
 <button id="edit-user-profile-btn-mates" class="primary-btn btn-sm card-button"><span>Your Preferences for a Match</span></button>
     <div class="card-deck-none" id="mates">
       <%= render 'dater_mates' %>
     </div>
+=======
+<br>
+<div class="text-center text-navy"><h3> What <%= @dater.f_name %>'s Backers say</h3></div>
+<br>
+<!-- Things Backers Say-->
+
+>>>>>>> erbs
 
 
 </div>
 </div>
 
 <script>
+<<<<<<< HEAD
 
 $("#edit-user-profile-btn-percent").click(function() {
   event.preventDefault()
@@ -287,4 +377,6 @@ $("#edit-user-profile-btn-mates").click(function() {
 
 
 
+=======
+>>>>>>> erbs
 </script>

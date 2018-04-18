@@ -16,24 +16,50 @@ class Dater < ApplicationRecord
     end
   end
 
+  def non_self_backers(dater)
+    DaterBacker.where(dater_id: dater.id).where.not(backer_id: dater.id)
+  end
+
   def traits_complete?(current_dater_id)
-    Trait.find_by_sql(["select traits.* from traits inner join daters on traits.dater_id = ?", current_dater_id]).any? {|t| t != nil}
+    Trait.find_by_sql(["SELECT traits.* FROM traits INNER JOIN  daters ON traits.dater_id = ?", current_dater_id]).any? {|t| t != nil}
   end
 
   def personalities_complete?(current_dater_id)
-    Personality.find_by_sql(["select personalities.* from personalities inner join dater_backers on personalities.dater_backer_id = dater_backers.id inner join daters on dater_backers.dater_id = ?", current_dater_id]).any? {|t| t != nil}
+    Personality.find_by_sql(["SELECT personalities.* FROM personalities INNER JOIN  dater_backers ON personalities.dater_backer_id = dater_backers.id INNER JOIN  daters ON dater_backers.dater_id = ?", current_dater_id]).any? {|t| t != nil}
   end
 
   def mate_preferences_complete?(current_dater_id)
-    MatePreference.find_by_sql(["select mate_preferences.* from mate_preferences inner join daters on mate_preferences.dater_id = ?", current_dater_id]).any? {|t| t != nil}
+    MatePreference.find_by_sql(["SELECT mate_preferences.* FROM mate_preferences INNER JOIN  daters ON mate_preferences.dater_id = ?", current_dater_id]).any? {|t| t != nil}
   end
 
   def dater_images(current_user_id)  # current USER!!!!
     Image.where(subject: current_user_id)
   end
 
+  def avg_personality(id, trait)
+    Personality.joins(:dater_backer).where("dater_backers.dater_id = #{id}").average("#{trait}")
+  end
+
+  # Personality.find_by_sql(["SELECT AVG(NULLIF(personalities.charitable,0)) FROM personalities INNER JOIN  dater_backers ON personalities.dater_backer_id = dater_backers.id INNER JOIN  daters ON dater_backers.dater_id = 1"])
+  #
+  # Personality.joins(:dater_backers).where("dater_backers.dater_id = 1").average(:charitable)
+  # Personality.group(:chartiable).having("min(age) > 17").average
+  # current_dater.personalities.first.friendly
+  #   shy
+  #   spontaneous
+  #   funny
+  #   adaptable
+  #   confident
+  #   logical
+  #   independent
+  #   organized
+  #   relaxed
+  #   friendly
+  #   energetic
+  #   silly
+  #   patient
+
+
+
 
 end
-
-
-Personality.find_by_sql("select personalities.* from personalities inner join dater_backers on personalities.dater_backer_id = dater_backers.id inner join daters on dater_backers.dater_id = daters.id")

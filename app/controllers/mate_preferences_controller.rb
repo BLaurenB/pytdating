@@ -6,7 +6,11 @@ class MatePreferencesController < ApplicationController
       if preference.update(mate_params)
         flash[:notice] = "Your Match preferences were successfully updated"
       end
+<<<<<<< HEAD
     redirect_to dater_path(current_dater)
+=======
+    redirect_to edit_dater_path(current_dater)
+>>>>>>> erbs
     end
 
 

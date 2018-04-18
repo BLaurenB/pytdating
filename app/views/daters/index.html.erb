@@ -1,0 +1,52 @@
+<div class="dashboard-header">
+  <h2>The Pool!</h2>
+
+
+    <div class="card-deck item-center">
+      <% @daters.each do |dater| %>
+
+            <div class="card text-center">
+
+                <div class="card-body item-center">
+                  <h5 class="card-title"><%= dater.f_name %></h5>
+                  <div class="item-center" ><%= image_tag current_dater.user.image.url, class:'', size:"250x250" %></div>
+                </div>
+                <div class="card-group">
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="card-text text-left">Age: <%= dater.f_name %></p>
+                      <p class="card-text text-left">Location: <%= dater.trait.zip %></p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                     <p class="card-text text-left">Gender: <%= dater.trait.gender %></p>
+                     <p class="card-text text-left">Orientation: <%= dater.trait.orientation %></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-group">
+                  <div class="card">
+                    <div class="card-body">
+                      <a href="<%= dater_path(dater) %>" class="primary-btn btn-sm login-button">View</a>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-body">
+                     <a href="" class="primary-btn btn-sm login-button">Add Me</a>
+                    </div>
+                  </div>
+                </div>
+
+          </div>
+          <br>
+
+      <% end %>
+    </div>
+
+
+</div>
+
+
+<script>
+</script>

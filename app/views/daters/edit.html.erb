@@ -1,7 +1,52 @@
 <div class="dashboard-header">
   <h2><%= current_dater.f_name %>'s Profile</h2>
-<div class="card" style="width=100%">
 
+
+  <div class="card text-center">
+      <div class="card-header">
+        ADD TO POOL  |  MESSAGE ME
+      </div>
+
+      <div class="card-body item-center">
+        <h5 class="card-title"><%= current_dater.f_name %></h5>
+        <div class="item-center" ><%= image_tag current_user.image.url, class:'', size:"250x250" %></div>
+      </div>
+
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text text-left">Age: </p>
+            <p class="card-text text-left">Location: </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+           <p class="card-text text-left">Gender: </p>
+           <p class="card-text text-left">Orientation: </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body item-center">
+              <a href="#" class="primary-btn btn-sm login-button">My Pool</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body item-center">
+             <a href="#" class="primary-btn btn-sm login-button">View</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer text-muted"><br></div>
+</div>
+
+
+
+<div class="card" style="width=100%">
+<br>
 <h3>Your DATER Profile is <%= %> % complete</h3>
 <button id="edit-user-profile-btn-percent" class="primary-btn btn-sm card-button"><span>% Complete</span></button>
 <div class="card-deck-none" id="percent-complete">
@@ -17,7 +62,7 @@
     <div class="card-body">
       <h5 class="card-title">You'll get better match with a complete profile</h5>
       <p class="text-left">Backers:
-        <p class="text-left text-navy"> <%= current_dater.backers.length %></p>
+        <p class="text-left text-navy"> <%= current_dater.non_self_backers(current_dater).count %></p>
       <p class="text-left">PYT Photo: </p>
         <p class="text-left text-navy"> tbd...<%#= current_dater.pyt_image.nil? ? "Please take a photo!" : "Done" %></p>
       <p class="text-left">Physical Traits, Lifestyle, and Leanings: </p>
@@ -38,15 +83,23 @@
     <div class="card">
       <div class="card-body-center">
         <h5 class="card-title">They got your back:</h5>
-        <% if current_dater.backers.empty? %>
+
+        <% if current_dater.non_self_backers(current_dater).count == 0 %>
           <div class="alert alert-warning" role="alert">
             Wait, nobody's got your back? Connect your tribe.
           </div>
         <% else %>
+        <ul class="list-group list-group-flush">
           <% current_dater.backers.each do |b| %>
-          <p class="text-left"><%= b.f_name.capitalize %> </p>
+            <% if b.id == current_dater.id %>
+            <% else %>
+            <li class="list-group-item"><%= b.f_name.capitalize %> </li>
+            <% end %>
           <% end %>
+        </ul>
         <% end %>
+        <br>
+        <h5 class="card-title">Petition Your Tribe! Add another Backer:</h5>
         <%= render 'add_backer' %>
         <p class="text-left"><small class="text-muted"></small></p>
       </div>
@@ -61,7 +114,8 @@
       <div class="card-group">
         <% current_dater.dater_images(current_user.id).each do |image| %>
         <div class="card">
-          <%= image_tag image.file, class:'', size:"100x100" %>
+          <%= image_tag current_dater.user.image.url, class:'', size:"100x100" %>
+
           <div class="card-footer">
             <small class="text-muted">Remove</small>
           </div>
@@ -80,7 +134,7 @@
 
 <button id="edit-user-profile-btn-personality" class="primary-btn btn-sm card-button"><span> Your Personality Traits</span></button>
     <div class="card-deck-none" id="personality">
-      
+
 
       <div class="card">
         <%= render 'p1'%>
@@ -97,16 +151,11 @@
 
 <button id="edit-user-profile-btn-mates" class="primary-btn btn-sm card-button"><span>Your Preferences for a Match</span></button>
     <div class="card-deck-none" id="mates">
-
-      <div class="card">
-        <div class="card-body">
-          This is some text within a card body.
-        </div>
-      </div>
-
+      <%= render 'dater_mates' %>
     </div>
 
 
+</div>
 </div>
 
 <script>
@@ -154,7 +203,7 @@ $("#edit-user-profile-btn-mates").click(function() {
       let last =  event.target.offsetParent.childNodes[3].value
       let currentUser = document.location.pathname.substr(11)
 
-            fetch(` http:localhost:3000/api/v1/users?f_name=${first}&l_name=${last}`)
+            fetch(`https://pytdating-live.herokuapp.com/api/v1/users?f_name=${first}&l_name=${last}`)
             .then((response) => response.json())
             .then((parsedBackers) => {
               console.log("line 122", parsedBackers)
@@ -199,7 +248,7 @@ $("#edit-user-profile-btn-mates").click(function() {
       event.preventDefault()
       let backerId = event.currentTarget.dataset.text
 
-      $.get(` http:localhost:3000/invites?backer_id=${backerId}`)
+      $.get(`https://pytdating-live.herokuapp.com/invites?backer_id=${backerId}`)
       $("#your-backers").append(`
         <div class="alert alert-success" role="alert" id="dater-invited-alert">
           <h4 class="alert-heading"> Email Sent!</h4>
@@ -213,7 +262,7 @@ $("#edit-user-profile-btn-mates").click(function() {
     $(".card-body-center").on("click", "#invite-backer-button", function(event) {
       event.preventDefault()
       let email = event.target.offsetParent.childNodes[1].value
-      $.get(` http:localhost:3000/invites?email=${email}&add_backer=true`)
+      $.get(`https://pytdating-live.herokuapp.com/invites?email=${email}&add_backer=true`)
       $("#your-backers").append(`
         <div class="alert alert-success" role="alert" id="dater-invited-alert">
           <h4 class="alert-heading"> Email Sent!</h4>

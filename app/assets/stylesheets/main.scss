@@ -114,6 +114,7 @@ $facebook-color: #3b5999;
 
 
 $teal:#51A1A1;
+$lt-teal:#dbfcfc;
 $darkBlue: #085465;
 $red: #dd3f4a;
 $grey:  #EAEAEA;
@@ -129,7 +130,12 @@ $grey:  #EAEAEA;
   color:black;
 }
 
+.card {
+  // background-color: $lt-teal;
+}
+
 .card-body{
+
   display: flex;
   flex-direction:column;
   // justify-content: flex-start;
@@ -150,10 +156,6 @@ $grey:  #EAEAEA;
   min-width: 0;
   word-wrap: break-word;
   background-color: #fff;
-}
-.pool-card-border {
-  border-width: thick;
-  border-color: navy;
 }
 
 
@@ -2688,8 +2690,18 @@ nav a:hover {
     background: linear-gradient(#78ffd6 0%, #007991 100%);
     height: 70%;
 }
+.bg-landing-gradient-lt {
+    background: linear-gradient(#dbfcfc 0%, #aeafaf 100%);
+    height: 70%;
+}
 .bg-landing-light-teal {
-background: #d7efee}
+background: #d7efee
+}
+
+.bg-gradient {
+    background: linear-gradient(#78ffd6 0%, #007991 100%);
+    height: 100%;
+}
 
 .background-black {
   background-color: black;

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
   get '/invites', to: 'invites#show'
   get '/dashboard', to: 'dashboard#show', as: '/dashboard'
+  # patch '/pool/:id', to: 'pool#update'
   root to: "homes#show"
 
   resources :sessions, only: [:create, :destroy]
@@ -25,8 +26,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :show, :update, :destroy]
   post 'search', to: 'search#create' , as: "search"
-  # get 'user/:id/pool', to: 'pool#index' , as: "user_pool"
-  # put 'user/:id/pool', to: 'pool#update' , as: "edit_user_pool"
+  get 'daters/:id/pool', to: 'pool#index' , as: "user_pool"
+  patch 'daters/:id/pool/:id', to: 'pool#update' , as: "edit_user_pool"
 
 
   namespace :api do
@@ -42,8 +43,9 @@ Rails.application.routes.draw do
       namespace :backers do
         get "/:id/daters", to: "daters#index"
       end
-      get 'dater_backers/:id/personalities', to: "personalities#show"
-      patch 'dater_backers/:id/personalities', to: "personalities#update"
+      get '/dater_backers/:id/personalities', to: "personalities#show"
+      patch '/dater_backers/:id/personalities', to: "personalities#update"
+      get '/pool', to: "pool#show"
     end
   end
 end

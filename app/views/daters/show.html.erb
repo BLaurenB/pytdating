@@ -47,7 +47,7 @@
 <br>
 <h2 class="text-accent">About <%= @dater.f_name %></h2>
 <br>
-<div class="text-center text-navy"><h3> Traits </h3></div>
+<div class="text-center text-navy"><h3> <%= @dater.f_name%>'s Life N Stuff </h3></div>
 <br>
 <div class="card-deck">
 
@@ -90,40 +90,116 @@
 
 </div>
 
-<div class="card-deck">
+<br>
+<div class="text-center text-navy"><h3>  <%= @dater.f_name%>'s Personality </h3></div>
+<br>
 
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Personality Traits</h5>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Charitable: <%= @dater.avg_personality(current_dater.id, "charitable") %></li>
-        <li class="list-group-item">Intelligent: <%= @dater.personalities.intelligent %></li>
-        <li class="list-group-item">Shy: <%= @dater.personalities.shy %></li>
-        <li class="list-group-item">Spontaneous: <%= @dater.personalities.spontaneous %></li>
-        <li class="list-group-item">Funny: <%= @dater.personalities.funny %></li>
-        <li class="list-group-item">Adaptable: <%= @dater.personalities.adaptable %></li>
-        <li class="list-group-item">Confident: <%= @dater.personalities.confident %></li>
-        <li class="list-group-item">Logical: <%= @dater.personalities.logical %></li>
-        <li class="list-group-item">Independent: <%= @dater.personalities.independent %></li>
-        <li class="list-group-item">Organized: <%= @dater.personalities.organized %></li>
-        <li class="list-group-item">Relaxed: <%= @dater.personalities.relaxed %></li>
-        <li class="list-group-item">Friendly: <%= @dater.personalities.friendly %></li>
-        <li class="list-group-item">Energetic: <%= @dater.personalities.energetic %></li>
-        <li class="list-group-item">Silly: <%= @dater.personalities.silly %></li>
-        <li class="list-group-item">Patient: <%= @dater.personalities.patient %></li>
-      </ul>
+
+  <div class="card-deck">
+    <div class="card profile-card">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th scope="col">Persronality Trait</th>
+                <th scope="col">Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+               <td>  Independent: </td>
+               <td>  <%= @dater.avg_personality(current_dater.id, "independent") %></td>
+            </tr>
+            <tr>
+               <td> Friendly: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "friendly") %></td>
+            </tr>
+            <tr>
+               <td> Shy: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "shy") %></td>
+            </tr>
+            <tr>
+               <td> Spontaneous: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "spontaneous") %></td>
+            </tr>
+            <tr>
+               <td> Organized: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "organized") %></td>
+            </tr>
+          </tbody>
+        </table>
     </div>
+    <div class="card profile-card">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th scope="col">Persronality Trait</th>
+                <th scope="col">Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+               <td> Funny: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "funny") %></td>
+            </tr>
+            <tr>
+               <td> Silly: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "silly") %></td>
+            </tr>
+            <tr>
+               <td> Adaptable: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "adaptable") %></td>
+            </tr>
+            <tr>
+               <td> Confident: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "confident") %></td>
+            </tr>
+            <tr>
+               <td> Energetic: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "energetic") %></td>
+            </tr>
+          </tbody>
+        </table>
     </div>
-
-
+    <div class="card profile-card">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th scope="col">Persronality Trait</th>
+                <th scope="col">Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+               <td> Relaxed: </td>
+               <td><%= @dater.avg_personality(current_dater.id, "relaxed") %></td>
+            </tr>
+            <tr>
+               <td> Patient: </td>
+               <td><%= @dater.avg_personality(current_dater.id, "patient") %> </td>
+            </tr>
+            <tr>
+               <td> Logical: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "logical") %></td>
+            </tr>
+            <tr>
+               <td> Intelligent: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "intelligent") %></td>
+            </tr>
+            <tr>
+               <td> Charitable: </td>
+               <td> <%= @dater.avg_personality(current_dater.id, "charitable") %></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
   </div>
 
-</div>
+
 
 <br>
-<div class="text-center text-navy"><h3> Pictures </h3></div>
+<div class="text-center text-navy"><h3> <%= @dater.f_name %>'s Pictures </h3></div>
 <br>
-<!-- Pictures-->
+
 
 <br>
 <div class="text-center text-navy"><h3> What <%= @dater.f_name %>'s Backers say</h3></div>
@@ -132,7 +208,6 @@
 
 
 
-</div>
 </div>
 
 <script>

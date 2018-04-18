@@ -2,14 +2,14 @@
   <h2><%= current_dater.f_name %>'s Profile</h2>
 
 
-  <div class="card text-center">
+  <div class="card card-no-lines text-center">
 
       <div class="card-body item-center">
         <h5 class="card-title"><%= current_dater.f_name %></h5>
         <div class="item-center" ><%= image_tag current_user.image.url, class:'', size:"250x250" %></div>
       </div>
 
-      <div class="card-group">
+      <!-- <div class="card-group">
         <div class="card">
           <div class="card-body">
             <p class="card-text text-left">Age: </p>
@@ -22,7 +22,7 @@
            <p class="card-text text-left">Orientation: </p>
           </div>
         </div>
-      </div>
+      </div> -->
 <!--
       <div class="card-group">
         <div class="card">
@@ -41,7 +41,7 @@
 
 
 
-<div class="card" style="width=100%">
+<div class="card card-no-lines" style="width=100%">
 <br>
 <h3 class="text-center">Your DATER Profile is <%= %> % complete</h3>
 <button id="edit-user-profile-btn-percent" class="primary-btn btn-sm card-button"><span>% Complete</span></button>

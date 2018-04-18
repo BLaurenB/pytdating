@@ -26,8 +26,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :show, :update, :destroy]
   post 'search', to: 'search#create' , as: "search"
-  get 'daters/:id/pool', to: 'pool#index' , as: "user_pool"
-  patch 'daters/:id/pool/:id', to: 'pool#update' , as: "edit_user_pool"
+  get 'daters/:id/pool', to: 'pool#index'
+  # patch 'daters/:id/pool/:id', to: 'pool#update' , as: "edit_user_pool"
 
 
   namespace :api do

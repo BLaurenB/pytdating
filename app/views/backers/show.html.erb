@@ -23,8 +23,8 @@
       You got <%= dater.f_name %>'s Back:
 
     <div class="card-body item-center">
-      <h5 class="card-title"><%= current_dater.f_name %></h5>
-      <div class="item-center" ><%= image_tag current_user.image.url, class:'', size:"100x100" %></div>
+      <h5 class="card-title"><%= dater.f_name %></h5>
+      <div class="item-center" ><%= image_tag dater.user.image.url, class:'', size:"100x100" %></div>
     </div>
 
     <div class="card-group ">

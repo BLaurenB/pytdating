@@ -743,6 +743,16 @@ a, a:focus, a:hover {
 .card-deck-none {
   display: none;
 }
+
+@media (min-width: 100px) {
+  .card-deck-mates {
+      display: flex !important;
+      flex-flow: row wrap;
+      justify-content: center;
+    }
+}
+
+
 .card-header{
   width:100%;
 }

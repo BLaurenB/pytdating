@@ -1,1 +1,34 @@
-<h1>PPOLOIO</h1>
+<div class="dashboard-header">
+  <h2> <%= @dater.f_name %>'s Pool</h2>
+
+
+    <div class="card-deck item-center">
+      <% @matches.each do |match| %>
+      <%dater = Dater.find(match.match_id) %>
+            <div class="card text-center">
+
+                <div class="card-body item-center">
+                  <h5 class="card-title"><%= dater.f_name %></h5>
+                  <div class="item-center" ><%= image_tag dater.user.image.url, class:'', size:"150x150" %></div>
+                </div>
+                <div class="card-group">
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="card-text text-left">Age: <%= dater.f_name %></p>
+                      <p class="card-text text-left">Location: <%= dater.trait.zip %></p>
+                     <p class="card-text text-left">Gender: <%= dater.trait.gender %></p>
+                     <p class="card-text text-left">Orientation: <%= dater.trait.orientation %></p>
+                      <div class="item-center"><a href="<%= dater_path(dater) %>" class="primary-btn btn-sm card-button" >  View  </a></div>
+
+                    </div>
+                  </div>
+                </div>
+
+          </div>
+          <br>
+
+      <% end %>
+    </div>
+
+
+</div>

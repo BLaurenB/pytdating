@@ -1,14 +1,9 @@
 <div class="dashboard-header">
   <h2>Your Backer Hub</h2>
 
-<div class="card" style="width=100%">
+<div class="card card-no-lines" style="width=100%">
   <div class="card-body" >
         <%= image_tag current_user.image.url, class:'', size:"100x100" %>
-  </div>
-
-  <div class="card-body">
-    <h5 class="card-title">test</h5>
-    <p class="card-text">test</p>
   </div>
 
   <div class="">
@@ -21,12 +16,11 @@
   </div>
 
 <% current_backer.daters.each do |dater| %>
-<button id="dater-button" class="primary-btn btn-sm card-button"><span> <%= dater.f_name %>: Profile <%= 7%>% Complete </span></button>
-<div class="card-deck-none" id="dater-mgmt">
-<div class="card text-center">
-    <div class="card-header">
+<button id="" class="primary-btn btn-sm card-button dater-button"><span> <%= dater.f_name %>: Profile <%= 7%>% Complete </span></button>
+<div class="card-deck-none card-no-lines" id="dater-mgmt">
+  <div class="card card-no-lines text-center">
+
       You got <%= dater.f_name %>'s Back:
-    </div>
 
     <div class="card-body item-center">
       <h5 class="card-title"><%= current_dater.f_name %></h5>
@@ -34,25 +28,24 @@
     </div>
 
     <div class="card-group ">
-      <div class="card ">
+      <div class="card card-no-lines">
         <div class="card-body">
           <p class="card-text"><a href="#" class="primary-btn btn-sm login-button">Edit My Responses </a></p>
         </div>
       </div>
-      <div class="card ">
+      <div class="card card-no-lines">
         <div class="card-body">
-          <p class="card-text"><a href="#" class="primary-btn btn-sm login-button">See <%= dater.f_name %>'s Pool  </a></p>
+          <p class="card-text"><a href= '<%="/daters/#{dater.id}/pool"%>' class="primary-btn btn-sm login-button">See <%= dater.f_name %>'s Pool  </a></p>
         </div>
       </div>
-      <div class="card">
+      <div class="card card-no-lines">
         <div class="card-body">
-         <p class="card-text"><a href="#" class="primary-btn btn-sm login-button">Add to <%= dater.f_name %>'s Pool </a></p>
+         <p class="card-text"><a href="/daters" class="primary-btn btn-sm login-button">Add to <%= dater.f_name %>'s Pool </a></p>
         </div>
       </div>
     </div>
 
-    <div class="card-footer text-muted"><br></div>
-</div>
+  </div>
 </div>
 <% end %>
 
@@ -69,10 +62,9 @@
 
 <script>
 // buttons need unique id, and need to be able to call the unique id here without knowing how many there will be!
-$("#dater-button").click(function() {
+$(".dater-button").click(function() {
   event.preventDefault()
-  console.log(this)
-  $(".card-deck-none").toggleClass("card-deck")
+  $(event.currentTarget.nextElementSibling).toggleClass("card-deck")
 })
 
 

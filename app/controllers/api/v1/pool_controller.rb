@@ -1,6 +1,7 @@
 class Api::V1::PoolController < ApiController
 
   def show
+    binding.pry
     match = params[:match]
     dater = params[:dater]
     check_for_match  =  Match.find_by(dater_id: dater, match_id: match)

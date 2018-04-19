@@ -7,33 +7,33 @@
   </div>
   <% else %>
 
-    <div class="card-deck item-center">
-      <% @matches.each do |match| %>
-      <%dater = Dater.find(match.match_id) %>
-            <div class="card text-center">
 
-                <div class="card-body item-center">
-                  <h5 class="card-title"><%= dater.f_name %></h5>
-                  <div class="item-center" ><%= image_tag dater.user.image.url, class:'', size:"150x150" %></div>
-                </div>
-                <div class="card-group">
-                  <div class="card">
-                    <div class="card-body">
-                      <p class="card-text text-left">Age: <%= dater.f_name %></p>
-                      <p class="card-text text-left">Location: <%= dater.trait.zip %></p>
-                     <p class="card-text text-left">Gender: <%= dater.trait.gender %></p>
-                     <p class="card-text text-left">Orientation: <%= dater.trait.orientation %></p>
-                      <div class="item-center"><a href="<%= dater_path(dater) %>" class="primary-btn btn-sm card-button" >  View  </a></div>
+  <div class="card-columns">
+      <% @matches.each do |each| %>
+      <% match = Dater.find(each.match_id) %>
+      <div class="card" id="horiz-card-outer">
+        <div class="card-body">
+          <div class="container">
+            <div class="row horiz-card">
 
-                    </div>
-                  </div>
-                </div>
+              <div class="text-line-height-sm text-center no-padding" >
+                <div class="item-center" ><%= image_tag match.user.image.url, class:'item-center', size:"70x70" %></div>
+                <div class="item-center" ><a href="<%= dater_path(match)%>" class="primary-btn-modified btn-sm login-button no-padding">View</a></div>
+              </div>
 
+              <div class="horiz-card-col-2 text-line-height-sm" >
+                <h5 class="card-title "><%= match.f_name %></h5>
+                <p class="">Age: <%= match.f_name %></p>
+                <p class="">Location: <%= match.trait.zip %></p>
+                <p class="">Gender: <%= match.trait.gender %></p>
+                <p class="">Orientation: <%= match.trait.orientation %></p>
+              </div>
+            </div>
           </div>
-          <br>
-
-      <% end %>
-    </div>
+        </div>
+      </div>
+      <% end  %>
+  </div>
 
 <% end %>
 </div>

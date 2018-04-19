@@ -65,7 +65,7 @@ let traitHash
       let email = event.target.offsetParent.childNodes[1].value
       let currentUser = document.location.pathname.substr(11)
 
-      fetch(`https://pytdating-live.herokuapp.com/api/v1/users?email=${email}`)
+      fetch(`http://localhost:3000/api/v1/users?email=${email}`)
       .then((response) => response.json())
       .then((parsed) => {
         console.log(parsed)
@@ -80,7 +80,7 @@ let traitHash
         else {
           let backerId = parsed.id
           let currentUser = document.location.pathname.substr(11)
-          fetch(`https://pytdating-live.herokuapp.com/api/v1/daters/${currentUser}/backers/${backerId}`)
+          fetch(`http://localhost:3000/api/v1/daters/${currentUser}/backers/${backerId}`)
           .catch(error => console.error(error))
 
           $("#your-backers").append(
@@ -102,7 +102,7 @@ let traitHash
       let email = event.target.offsetParent.childNodes[1].value
       let currentUser = document.location.pathname.substr(11)
 
-      fetch(`https://pytdating-live.herokuapp.com/api/v1/users?email=${email}`)
+      fetch(`http://localhost:3000/api/v1/users?email=${email}`)
       .then((response) => response.json())
       .then((parsed) => {
         console.log(parsed)
@@ -137,7 +137,7 @@ let traitHash
       let email = event.target.offsetParent.childNodes[1].value
       console.log(email)
       $('.form-control').html('')
-      $.get(`https://pytdating-live.herokuapp.com/invites?email=${email}`)
+      $.get(`http://localhost:3000/invites?email=${email}`)
     })
 
 
@@ -149,7 +149,7 @@ let traitHash
       let currentUser = document.location.pathname.substr(11)
       console.log(first, last, currentUser)
 
-            fetch(`https://pytdating-live.herokuapp.com/api/v1/users?f_name=${first}&l_name=${last}`)
+            fetch(`http://localhost:3000/api/v1/users?f_name=${first}&l_name=${last}`)
             .then((response) => response.json())
             .then((parsedDaters) => {
               console.log(parsedDaters)
@@ -193,7 +193,7 @@ let traitHash
       event.preventDefault()
       let daterId = event.currentTarget.attributes[2].nodeValue
       let currentUser = document.location.pathname.substr(11)
-      fetch(`https://pytdating-live.herokuapp.com/api/v1/backers/${currentUser}/daters/${daterId}`)
+      fetch(`http://localhost:3000/api/v1/backers/${currentUser}/daters/${daterId}`)
       .catch(error => console.error(error))
 
         $(".search-for-new-dater").append(`
@@ -209,7 +209,7 @@ let traitHash
       event.preventDefault()
       let email = event.target.offsetParent.childNodes[1].value
       console.log(email)
-      $.get(`https://pytdating-live.herokuapp.com/invites?email=${email}&add_dater=true`)
+      $.get(`http://localhost:3000/invites?email=${email}&add_dater=true`)
         $(".list-and-add-backers").append(`
           <div class="alert alert-success" role="alert" id="dater-invited-alert">
             <h4 class="alert-heading"> Email Sent!</h4>

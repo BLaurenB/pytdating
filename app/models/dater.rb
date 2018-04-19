@@ -37,29 +37,8 @@ class Dater < ApplicationRecord
   end
 
   def avg_personality(id, trait)
+    return 0 if Personality.joins(:dater_backer).where("dater_backers.dater_id = #{id}").average("#{trait}") == nil
     Personality.joins(:dater_backer).where("dater_backers.dater_id = #{id}").average("#{trait}").round(1)
   end
-
-  # Personality.find_by_sql(["SELECT AVG(NULLIF(personalities.charitable,0)) FROM personalities INNER JOIN  dater_backers ON personalities.dater_backer_id = dater_backers.id INNER JOIN  daters ON dater_backers.dater_id = 1"])
-  #
-  # Personality.joins(:dater_backers).where("dater_backers.dater_id = 1").average(:charitable)
-  # Personality.group(:chartiable).having("min(age) > 17").average
-  # current_dater.personalities.first.friendly
-  #   shy
-  #   spontaneous
-  #   funny
-  #   adaptable
-  #   confident
-  #   logical
-  #   independent
-  #   organized
-  #   relaxed
-  #   friendly
-  #   energetic
-  #   silly
-  #   patient
-
-
-
 
 end

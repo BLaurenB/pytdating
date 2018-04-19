@@ -16,9 +16,8 @@
 
 
 <button id="edit-user-profile-btn-pix" class="primary-btn btn-sm card-button"><span>Pictures</span></button>
-Upload pictures to help potential matches see your Tribe in the best light!
-<%= render 'new' %>
-  <div class="card-deck-none" id="pix">
+<div class="card-deck-none" id="pix">
+  <div class="card-deck" >
       <div class="card-group">
         <% @dater.dater_images(current_user.id).each do |image| %>
         <div class="card">
@@ -29,6 +28,9 @@ Upload pictures to help potential matches see your Tribe in the best light!
         </div>
       <% end  %>
       </div>
+    </div>
+    <%= render 'new_image' %>
+    Upload pictures to help potential matches see your Tribe in the best light!
 
   </div>
 

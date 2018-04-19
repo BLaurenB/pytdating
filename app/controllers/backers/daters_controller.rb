@@ -15,6 +15,7 @@ class Backers::DatersController < ApplicationController
     @dater = Dater.find(params[:id])
     @dater_backer_id = DaterBacker.where(dater_id: @dater.id, backer_id: current_backer.id).first.id
     @params = params
+    @image = Image.all
   end
 
   # def edit
@@ -22,12 +23,12 @@ class Backers::DatersController < ApplicationController
   # end
 
   def update
-    # binding.pry
+    binding.pry
     if image_params
-        uploaded_io = params[:dater][:image]
-        File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-          file.write(uploaded_io.read)
-        end
+
+# image = Image.create(user_id: "backer's UID", subject: "dater's UID")
+# image.update(file: user_params[:image])
+
       Image.create!(user_id: current_dater.user_id, subject: current_dater.id, file: uploaded_io)
       redirect_to dater_path(current_dater)
     else

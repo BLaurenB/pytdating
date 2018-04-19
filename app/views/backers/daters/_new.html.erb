@@ -1,0 +1,20 @@
+
+
+<div class="card" style="width= 100%">
+    <div class="card-body">
+    </div>
+
+  <div class="card-body">
+    <h5 class="card-title">Upload a picture of </h5>
+    <p class="card-text"></p>
+  </div>
+  <%= form_for [:backers, @dater] do |f| %>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">File <%= f.file_field :image %></li>
+  </ul>
+  <%= f.submit "    Save    ", class: "primary-btn btn-sm login-button" %>
+  <% end %>
+  <div class="card-body">
+
+  </div>
+</div>

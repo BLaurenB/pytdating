@@ -7,22 +7,22 @@ class UsersController < ApplicationController
 
   # def create
   # end
+  # def show
+  #   #
+  # end
 
   def edit
 
   end
 
   def update
- 
+    binding.pry
     user  = current_user
     user.update(user_params)
     redirect_to dashboard_path
   end
 
-  #
-  # def show
-  #   #  
-  # end
+
 
 private
   def user_params

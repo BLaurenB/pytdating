@@ -19,6 +19,21 @@ $facebook-color: #3b5999;
   align-content: left !important;
 }
 
+.text-line-height-sm {
+  line-height: 60%;
+}
+
+.horiz-card {
+  display:flex ;
+}
+.horiz-card-col-2 {
+  padding-left: 5%;
+}
+.horiz-card-col-1 {
+  min-width: 100px;
+}
+
+
 #q-button{
   margin:0;
 }
@@ -1427,7 +1442,7 @@ td, th {
 }
 
 .no-padding {
-  padding: 0;
+  padding: 0, !important;
 }
 
 .section-bg {
@@ -1503,6 +1518,29 @@ h1, h2, h3, h4, h5, h6 {
 .button-group-area .genric-btn {
   margin-right: 10px;
   margin-top: 10px;
+}
+
+element.style {
+}
+
+.primary-btn-modified {
+    /* margin-top: 20px; */
+    line-height: 40px;
+    border-radius: 20px;
+    border: 1px solid #51A1A1;
+    color: #51A1A1;
+    display: inline-block;
+    font-weight: 500;
+    position: relative;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    text-transform: uppercase;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
 }
 
 .button-group-area .genric-btn:last-child {

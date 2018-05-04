@@ -1,0 +1,44 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+
+
+CLIENT_ID: 134080507951-r9hcb3u18epgpvf2vshcpubgnsqlvv1q.apps.googleusercontent.com
+CLIENT_SECRET: qwppqY22p0hvo7dMtvuBVG8G
+# CLIENT_ID: 771751783335-4255emad0coep86m8eiobgid0icng8o3.apps.googleusercontent.com
+# CLIENT_SECRET: fvsNEl7hu0wgi_PQz-Ze6pL1
+
+AW_KEY: AKIAJWXXZVOIXQ5U3RXQ
+AW_SECRET: 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
+
+#Mailgun
+api_key: 'key-78d86f21e7ae007001635f19c4082e9a'
+domain: 'sandboxc831245ac1bc4ff7ab405c0e3358dd78.mailgun.org'
+username: 'postmaster@sandboxc831245ac1bc4ff7ab405c0e3358dd78.mailgun.org'
+password: '10754cb9ea90ff1fe9c982de85352d13-80bfc9ce-a564e752'
+
+gmail_username: 'pytdating@gmail.com'
+gmail_password: 'Iheartpytdating!123'
+
+MailChimp: 3441699e3c48c088912d53ff140c2587-us18
+
+# ps for pytdating@gmail,  Iheartpytdating!123
+# pytdating.bobby@gmail is 'Iheartpytdating123'
+# mailgun : pytdating@gmail.com,  Iheartpytdating!123
+
+GH_RecoveryCodes: '9359e-ec744 ac342-a91f4 28cd4-2d6ea 73a37-612d0 b554d-250da cae08-7c5ba 918b6-ee1b1 103ed-094c8 644ad-778f7 1455f-622ac 74c64-d46b4 68b77-d9a40 d292f-fa2cc 72689-37593 d01da-86e1d f74f5-a0b50'
+
+
+production:
+  SECRET_KEY_BASE: 4712ca67e465637ca945ad57e1578a610ac8ffeef0410dc047388902e0aa3e06ba21d5d13e30c5bf22b230760658bd8a7c169f354bd6373309792fec8bc2ebbc
+  RAILS_SERVE_STATIC_FILES: "true"
+  RAILS_LOG_TO_STDOUT: "true"

@@ -1,0 +1,14 @@
+<%= form_for @user, html: { multipart: true } do |f| %>
+  <p>
+    <label>My Avatar</label>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </p>
+<% end %>
+
+
+If you want to remove the file manually, you can call remove_avatar!, then save the object.
+
+@user.remove_avatar!
+@user.save
+#=> true

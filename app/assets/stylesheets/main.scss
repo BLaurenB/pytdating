@@ -249,8 +249,12 @@ $grey:  #EAEAEA;
   margin: 0;
 }
 
+.card-home-padding {
+  padding-left: 3%;
+}
+
 .card-home-icons {
-  max-width: 200px;
+  max-width: 300px;
   justify-content: center;
   background: none;
   border-radius: 0;
@@ -1299,6 +1303,14 @@ td, th {
 .item-center {
   justify-content: center;
 }
+.card-body-center-landing {
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
 .image-center {
   display: block;
 }

@@ -6,7 +6,7 @@ $card-bg: #DFDFE2;
 $dribbble-color: #ea4b89;
 $twitter-color: #68aade;
 $facebook-color: #3b5999;
-
+$navy: #112544;
 
 .card:hover{
   // box-shadow: 1em 1em 2em rgba(0,0,0,.2);
@@ -203,7 +203,7 @@ $grey:  #EAEAEA;
 }
 
 #home-button:hover{
-  background: #272266;
+  background: $navy;
 }
 
 .login{
@@ -225,19 +225,34 @@ $grey:  #EAEAEA;
 .login,.login a {
   color: $teal !important;
 }
-.pyt-signup{
-  display:flex;
-  flex-direction: column;
-  align-items:space-between;
-  justify-content: center;
-  max-width: 200px;
-  margin: 3%;
+
+.pyt-title {
+  max-height: 30%;
 }
-.pyt-signup-outer{
-  display:flex;
-  flex-direction: row;
-  align-items:space-between;
+
+.pyt-signup{
+  // display:flex;
+  // flex-direction: column;
+  // align-items:space-between;
+  // justify-content: center;
+  max-width: 100%;
+  margin: 3%;
+  margin-right: 10%
+}
+.pyt-signup-outer {
+  display: block;
+
+  // display: flex;
+  // flex-direction: column;
+  // align-items:space-between;
   justify-content: center;
+
+}
+
+.padding-10-percent {
+  padding-right: 6%;
+  padding-left: 6%;
+
 }
 
 .card-home-tribe {
@@ -249,9 +264,6 @@ $grey:  #EAEAEA;
   margin: 0;
 }
 
-.card-home-padding {
-  padding-left: 3%;
-}
 
 .card-home-icons {
   max-width: 300px;
@@ -1296,20 +1308,14 @@ td, th {
   text-align: right;
 }
 .text-total-center {
-  // text-align: center;
-  text-align:justify;
+  text-align: center;
+  vertical-align: middle
 }
 
 .item-center {
   justify-content: center;
 }
-.card-body-center-landing {
-  display: flex;
-  flex-direction:column;
-  justify-content: flex-start;
-  align-items: center;
 
-}
 
 .image-center {
   display: block;
@@ -2782,7 +2788,7 @@ nav a:hover {
 
 .PYT-bl-height {
   height: 200px;
-  padding-top: 9%;
+  padding-top: 6%;
   border-radius: 0;
 }
 
@@ -3343,7 +3349,7 @@ footer {
   bottom: 0;
   width: 100%;
   background: $teal;
-  color: navy, !important;
+  color: $navy, !important;
   text-align: center;
 }
 

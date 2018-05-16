@@ -89,7 +89,6 @@ $navy: #112544;
 .card-profile {
   width: 340px;
   margin-top:20px;
-
   background-color: white;
   border-radius: 0;
   border: 0;
@@ -148,7 +147,10 @@ $grey:  #EAEAEA;
   height: 200px;
   color:black;
 }
-
+.dash-btn-padding {
+  padding-left: 5%;
+  padding-right: 5%;
+}
 .card-no-lines {
   border-radius: 0;
   border-color: white;
@@ -355,7 +357,10 @@ td{
 
 .card-button, #dash-side-button{
   color:$teal;
+  max-width: 400px;
+  min-width: 100px;
 }
+
 .answer1-table{
   display:none
 }
@@ -464,6 +469,7 @@ td{
 body{
   font-family: 'Montserrat', sans-serif;
   color:white;
+  margin-bottom: 10%;
 }
 
 #tab2{
@@ -1315,7 +1321,6 @@ td, th {
 .item-center {
   justify-content: center;
 }
-
 
 .image-center {
   display: block;

@@ -16,7 +16,9 @@
   </div>
 
 <% current_backer.daters.each do |dater| %>
-<button id="" class="primary-btn btn-sm card-button dater-button"><span> <%= dater.f_name %>: Profile <%= 7%>% Complete </span></button>
+<div class="text-center">
+  <button id="" class=" btn-sm wide-button dater-button"><span> <%= dater.f_name %>: Profile <%= 7%>% Complete </span></button>
+</div>
 <div class="card-deck-none card-no-lines" id="dater-mgmt">
   <div class="card card-no-lines text-center">
 
@@ -30,17 +32,17 @@
     <div class="card-group ">
       <div class="card card-no-lines">
         <div class="card-body">
-          <p class="card-text"><a href='<%=" /backers/#{current_backer.id}/daters/#{dater.id}/edit"  %>' class="primary-btn btn-sm login-button">Edit My Responses </a></p>
+          <p class="card-text"><a href='<%=" /backers/#{current_backer.id}/daters/#{dater.id}/edit"  %>' class="btn-sm teal-button">Edit My Responses </a></p>
         </div>
       </div>
       <div class="card card-no-lines">
         <div class="card-body">
-          <p class="card-text"><a href= '<%="/daters/#{dater.id}/pool"%>' class="primary-btn btn-sm login-button">See <%= dater.f_name %>'s Pool  </a></p>
+          <p class="card-text"><a href= '<%="/daters/#{dater.id}/pool"%>' class="btn-sm teal-button">See <%= dater.f_name %>'s Pool  </a></p>
         </div>
       </div>
       <div class="card card-no-lines">
         <div class="card-body">
-         <p class="card-text"><a href="/daters" class="primary-btn btn-sm login-button">Add to <%= dater.f_name %>'s Pool </a></p>
+         <p class="card-text"><a href="/daters" class="btn-sm teal-button">Add to <%= dater.f_name %>'s Pool </a></p>
         </div>
       </div>
     </div>
@@ -49,10 +51,6 @@
 </div>
 <% end %>
 
-
-  <div class="card-body">
-    <div class = 'pyt-signup-outer'> also also test </div>
-  </div>
 
 
 </div>

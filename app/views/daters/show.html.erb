@@ -1,14 +1,25 @@
 <div class="dashboard-header">
+
+<% if current_dater.id == params[:id].to_i %>
+<div class="card card-no-lines">
+  <div class="card-no-lines">
+    <div class="card-body proof">
+      <p class="card-text text-charcoal">PREVIEW! <br>Here's what other see when they view your profile:</p>
+    </div>
+  </div>
+<% end %>
+</div>
+<br>
   <h2 class="text-accent" id="name-header"><%= @dater.f_name %>'s Profile</h2>
 
 
   <div class="card card-no-lines text-center">
       <div class="">
-        <a href="#" class="primary-btn btn-sm login-button add-me-button" id="match=<%=@dater.id%>&dater=<%= current_dater.id%>">Add To Pool</a><a href="#" class="primary-btn btn-sm login-button">Message Me</a>
+        <a href="#" class="btn-sm teal-button add-me-button" id="match=<%=@dater.id%>&dater=<%= current_dater.id%>">Add To Pool</a><a href="#" class=" btn-sm teal-button">Message Me</a>
       </div>
 
       <div class="card-body item-center">
-        <h5 class="card-title"><%= @dater.f_name %></h5>
+        <h5 class="card-title"></h5>
         <div class="item-center" ><%= image_tag @dater.user.image.url, class:'', size:"250x250" %></div>
       </div>
 

@@ -5,12 +5,12 @@
   <div class="card card-no-lines text-center">
 
       <div class="card-body item-center">
-        <h5 class="card-title"><%= current_dater.f_name %></h5>
+        <h5 class="card-title"></h5>
         <div class="item-center" ><%= image_tag current_user.image.url, class:'', size:"250x250" %></div>
       </div>
-      <div class="card-body item-center">
-        <h5 class="card-title">View My Public Dater Profile</h5>
-        <div class="item-center" ><a href="<%= dater_path(current_dater)%>" class="primary-btn btn-sm login-button item-center"> My Profile</a></div>
+      <div class="card-body item-center ">
+        <h5 class="card-title text-navy">View My Public Dater Profile</h5>
+        <div class="item-center"><a href="<%= dater_path(current_dater)%>" class=" btn-sm teal-button item-center "> <div class="">My Profile</div></a></div>
       </div>
       <!-- <div class="card-group">
         <div class="card">
@@ -32,10 +32,13 @@
 
 
 
-<div class="card card-no-lines" style="width=100%">
+<div class="card card-no-lines " style="width=100%">
 <br>
 <h3 class="text-center">Your DATER Profile is <%= %> % complete</h3>
-<button id="edit-user-profile-btn-percent" class="primary-btn btn-sm card-button"><span>% Complete</span></button>
+
+<div class="text-center">
+  <button id="edit-user-profile-btn-percent" class=" btn-sm wide-button "><span>% Complete</span></button>
+</div>
 <div class="card-deck-none" id="percent-complete">
   <div class="card">
     <div class="card-body">
@@ -63,8 +66,9 @@
   </div>
 </div>
 
-
-<button id="edit-user-profile-btn-backers" class="primary-btn btn-sm card-button"><span>Your Backers</span></button>
+<div class="text-center">
+  <button id="edit-user-profile-btn-backers" class=" btn-sm wide-button"><span>Your Backers</span></button>
+</div>
 <div id="your-backers">
   <div class="card-deck-none" id="your-backers-deck">
     <div class="card">
@@ -94,8 +98,9 @@
   </div>
 </div>
 
-
-<button id="edit-user-profile-btn-pix" class="primary-btn btn-sm card-button"><span>Pictures</span></button>
+<div class="text-center">
+  <button id="edit-user-profile-btn-pix" class=" btn-sm wide-button"><span>Pictures</span></button>
+</div>
   <div class="card-deck-none" id="pix">
 
       <div class="card-group">
@@ -112,14 +117,16 @@
 
   </div>
 
-
-<button id="edit-user-profile-btn-traits" class="primary-btn btn-sm card-button"><span>Your Physical Traits, Lifestyle, and Leanings</span></button>
+<div class="text-center">
+  <button id="edit-user-profile-btn-traits" class=" btn-sm wide-button"><span>Your Physical Traits, Lifestyle, and Leanings</span></button>
+</div>
   <div class="card-deck-none" id="traits">
     <%= render 'dater_traits' %>
   </div>
 
-
-<button id="edit-user-profile-btn-personality" class="primary-btn btn-sm card-button"><span> Your Personality Traits</span></button>
+<div class="text-center">
+  <button id="edit-user-profile-btn-personality" class=" btn-sm wide-button"><span> Your Personality Traits</span></button>
+</div>
     <div class="card-deck-none" id="personality">
 
 
@@ -135,8 +142,9 @@
 
     </div>
 
-
-<button id="edit-user-profile-btn-mates" class="primary-btn btn-sm card-button"><span>Your Preferences for a Match</span></button>
+<div class="text-center">
+  <button id="edit-user-profile-btn-mates" class=" btn-sm wide-button"><span>Your Preferences for a Match</span></button>
+</div>
     <div class="card-deck-none" id="mates">
       <%= render 'dater_mates' %>
     </div>
@@ -220,7 +228,7 @@ $("#edit-user-profile-btn-mates").click(function() {
                     <div class="card-body">
                       <h5 class="card-title">${backer.f_name} ${backer.l_name}</h5>
                       <p class="card-text">...</p>
-                      <a class ="primary-btn card-button text-center" id="connect-user-as-backer" data-text="${backer.id}">Connect!</a>
+                      <a class =" wide-button text-center" id="connect-user-as-backer" data-text="${backer.id}">Connect!</a>
                     </div>
                   </div>
                 `)

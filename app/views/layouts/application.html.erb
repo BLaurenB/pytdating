@@ -15,30 +15,38 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12" id="main-nav">
         <div class = 'logo-div'>
           <%= link_to image_tag('pytlogo'), homes_path %>
-          </div>
-        <a class="navbar-brand" id='header-title'>PYT Dating</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <%if current_user%>
-            <li class="nav-item active"><%=link_to 'Dashboard', dashboard_path(current_user), class: 'nav-link'%></li>
-            <li class="nav-item active"><%=link_to 'Messages', dashboard_path(current_user), class: 'nav-link'%></li>
-            <li class="nav-item active"><%=link_to 'Your Pool', "/daters/#{current_dater.id}/pool", class: 'nav-link'%></li>
-            <li class="nav-item active"><%=link_to 'All Daters', daters_path, class: 'nav-link'%></li>
-
-            <%end%>
-          </ul>
         </div>
-        <div class = 'login'>
+        <a class="navbar-brand" id='header-title'>PYT Dating</a>
+
+        <div class = "">
           <% if current_user %>
-          Signed in as <strong><%= current_user.f_name %></strong>!
-          <%= link_to "Sign out", signout_path, id: "sign_out", class:'' %>
-          <% else %>
-          <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class:'' %>
+          Signed in as <%= current_user.f_name %>
           <% end %>
         </div>
+
+        <div class="">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <%if current_user%>
+                <li class="nav-item active"><%=link_to 'Dashboard', dashboard_path(current_user), class: 'nav-link'%></li>
+                <li class="nav-item active"><%=link_to 'Messages', dashboard_path(current_user), class: 'nav-link'%></li>
+                <li class="nav-item active"><%=link_to 'Your Pool', "/daters/#{current_dater.id}/pool", class: 'nav-link'%></li>
+                <li class="nav-item active"><%=link_to 'All Daters', daters_path, class: 'nav-link'%></li>
+
+                <li class="nav-item active"><%= link_to "Sign out", signout_path, id: "sign_out", class:'nav-link' %></li>
+
+                <%end%>
+              </ul>
+            </div>
+            <div class = 'login'>
+              <% if !current_user %>
+              <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class:'' %>
+              <% end %>
+            </div>
+          </div>
       </nav>
       <div class = 'main bg-landing-gradient-lt' >
        <% if flash[:notice] %>

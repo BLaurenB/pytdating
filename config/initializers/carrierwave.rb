@@ -1,4 +1,4 @@
-require 'carrierwave/orm/activerecord'
+  require 'carrierwave/orm/activerecord'
 
 CarrierWave.configure do |config|
     config.storage    = :aws
@@ -11,4 +11,3 @@ CarrierWave.configure do |config|
       region:            "us-east-1"
     }
   end
-  

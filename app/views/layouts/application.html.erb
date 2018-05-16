@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="zxx" class="">
   <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>PYT</title>
@@ -42,12 +42,29 @@
       </nav>
       <div class = 'main bg-landing-gradient-lt' >
        <% if flash[:notice] %>
-         <div class="alert alert-primary" role="alert"><%= flash[:notice] %></div>
+         <div class="alert alert-primary" role="alert"><%= flash[:notice] %>
+         </div>
         <% end %>
         <%= yield %>
       </div>
-      <footer class= 'col-md-12' id="footer ">
+      <footer class= 'footer' id="footer ">
+        <div class="card-deck">
+            <div>
+              <p>© 2018 PYT Dating | </p>
+
+            </div>
+            <div>
+              <p><a target="_blank" href="/terms">Terms of Use | </a></p>
+              <br>
+            </div>
+
+            <div>
+              <p><a target="_blank" href="/privacy_policy">Privacy Policy</a></p>
+            </div>
+        </div>
+
       </footer>
-      <!-- <script src="main.bundle.js"></script> -->
+
     </body>
+    <!-- <script src="main.bundle.js"></script> -->
 </html>

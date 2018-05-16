@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
+    # binding.pry
     user  = current_user
     user.update(user_params)
     redirect_to dashboard_path
